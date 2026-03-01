@@ -1,23 +1,19 @@
 extends Node2D
 const WEAPONS = [
-<<<<<<< HEAD
 	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png"},
 	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png"},
 	{"name": "Trident", "type": "weapon", "texture_path": "res://Sword Pack/trident.png"},
 	{"name": "OxygenBoost", "type": "powerup", "texture_path": "", "scene_path": "res://scenes/Static objects.tscn", "frame": 2},
-	{"name": "SpeedBoost", "type": "powerup", "texture_path": "", "scene_path": "res://scenes/Static objects.tscn", "frame": 3}
-=======
+	{"name": "SpeedBoost", "type": "powerup", "texture_path": "", "scene_path": "res://scenes/Static objects.tscn", "frame": 3},
 	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png", "damage": 30, "swing_speed": 1.2, "weapon_scale": 4.0, "pickup_scale": 1.0},
 	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png", "damage": 35, "swing_speed": 0.8, "weapon_scale": 4.0, "pickup_scale": 1.0},
 	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 30, "swing_speed": 1.0, "weapon_scale": 0.5, "pickup_scale": 0.125
 	}
->>>>>>> 8cb02f85aad0d4d53f5cec1d3bb52331ace0c8b9
 ]
 var item_data: Dictionary = {}
 var player_in_range: bool = false
 
 func _ready() -> void:
-<<<<<<< HEAD
 	item_data = WEAPONS[randi_range(0, WEAPONS.size() - 1)].duplicate()
 	if item_data.get("scene_path", "") != "":
 		var scene = load(item_data.scene_path).instantiate()
@@ -29,12 +25,10 @@ func _ready() -> void:
 		scene.free()
 	else:
 		$"item sprite".texture = load(item_data.texture_path)
-=======
 	item_data = WEAPONS[randi_range(0, WEAPONS.size() - 1)]
 	$"item sprite".texture = load(item_data.texture_path)
 	var s = item_data.pickup_scale
 	$"item sprite".scale = Vector2(s, s)
->>>>>>> 8cb02f85aad0d4d53f5cec1d3bb52331ace0c8b9
 	$"item sprite/AnimationPlayer".play("open")
 	var area = Area2D.new()
 	area.name = "PickupArea"
@@ -100,7 +94,6 @@ func _process(_delta: float) -> void:
 			queue_free()
 		else:
 			item_data = old_item
-<<<<<<< HEAD
 			if item_data.get("scene_path", "") != "":
 				var scene = load(item_data.scene_path).instantiate()
 				var anim_sprite = _find_animated_sprite(scene)
@@ -111,9 +104,7 @@ func _process(_delta: float) -> void:
 				scene.free()
 			else:
 				$"item sprite".texture = load(item_data.texture_path)
-=======
 			$"item sprite".texture = load(item_data.texture_path)
 			var s2 = item_data.pickup_scale
 			$"item sprite".scale = Vector2(s2, s2)
->>>>>>> 8cb02f85aad0d4d53f5cec1d3bb52331ace0c8b9
 			PromptUI.show_prompt(_prompt_text())

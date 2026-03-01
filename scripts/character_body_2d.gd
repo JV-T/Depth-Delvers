@@ -91,12 +91,9 @@ func _update_weapon() -> void:
 		_equipped_weapon_name = w.name
 		weapon_anim.play("weapon/pickup")
 	if not weapon_anim.is_playing():
-<<<<<<< HEAD
 		weapon_sprite.scale = Vector2(4, 4)
-=======
 		var s = w.weapon_scale
 		weapon_sprite.scale = Vector2(s, s)
->>>>>>> 8cb02f85aad0d4d53f5cec1d3bb52331ace0c8b9
 
 
 func _on_timer_timeout() -> void:
