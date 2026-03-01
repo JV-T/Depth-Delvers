@@ -24,6 +24,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _process(_delta: float) -> void:
 	if playertouching and Input.is_action_just_pressed("interact") and not opened:
+		$AudioStreamPlayer.play()
 		$AnimatedSprite2D.play("default")
 		opened = true
 		UserInterface.shakeamount += 50

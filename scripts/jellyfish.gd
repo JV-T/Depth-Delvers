@@ -57,6 +57,7 @@ func _on_area_entered(area: Area2D) -> void:
 		UserInterface.shakeamount += 40
 		$bloodeffect.emitting = true
 		if enemyhealth < 0:
+			$AudioStreamPlayer.play()
 			$AnimationPlayer.play("death")
 			UserInterface.shakeamount += 80
 			UserInterface.oxygen += 20

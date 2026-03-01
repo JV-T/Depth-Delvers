@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://opwrikdi5ed4" path="res://pickableitems.gd" id="1_sb4v4"]
 [ext_resource type="Texture2D" uid="uid://pen4687bluee" path="res://Sword Pack/Black Sword.png" id="2_rc6jy"]
 [ext_resource type="Shader" uid="uid://wmtg14bgtyfc" path="res://pickableitems.gdshader" id="2_wh125"]
+[ext_resource type="AudioStream" uid="uid://emu674s3srni" path="res://freesound_community-item-equip-6904.mp3" id="4_pkb47"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkb47"]
 shader = ExtResource("2_wh125")
@@ -60,3 +61,6 @@ texture = ExtResource("2_rc6jy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="item sprite" unique_id=355748249]
 libraries/ = SubResource("AnimationLibrary_rhxft")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1346079430]
+stream = ExtResource("4_pkb47")

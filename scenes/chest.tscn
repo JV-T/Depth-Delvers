@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cj77dl40iq8ln" path="res://treasure chest/treasure chest0005.png" id="6_nnvde"]
 [ext_resource type="Texture2D" uid="uid://7tmhvs2vp72q" path="res://treasure chest/treasure chest0006.png" id="7_sj8sc"]
 [ext_resource type="Texture2D" uid="uid://dx22nt12cpn1i" path="res://treasure chest/treasure chest0007.png" id="8_euan8"]
+[ext_resource type="AudioStream" uid="uid://cijlri0xxrfy" path="res://freesound_community-chest-opening-87569.mp3" id="11_udamv"]
 
 [sub_resource type="Gradient" id="Gradient_udamv"]
 colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
@@ -98,6 +99,9 @@ shape = SubResource("RectangleShape2D_0xutf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=430462603]
 shape = SubResource("RectangleShape2D_kg5gm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=207107039]
+stream = ExtResource("11_udamv")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

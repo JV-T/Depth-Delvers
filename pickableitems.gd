@@ -92,6 +92,7 @@ func _process(_delta: float) -> void:
 			PromptUI.hide_prompt()
 			queue_free()
 		else:
+			$AudioStreamPlayer.play()
 			# Become the dropped item so the player can swap back
 			item_data = old_item
 			$"item sprite".texture = load(item_data.texture_path)

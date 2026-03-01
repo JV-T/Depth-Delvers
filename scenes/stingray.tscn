@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bnlv6k7wtf1wr" path="res://sprites/image-removebg-preview.png" id="3_33l23"]
 [ext_resource type="Texture2D" uid="uid://cwdw2ioqag3om" path="res://Redsquare.png" id="4_vr0jt"]
 [ext_resource type="Theme" uid="uid://d0s203toj4ts4" path="res://theme.tres" id="5_ond1r"]
+[ext_resource type="AudioStream" uid="uid://dhvjwc2m32i4a" path="res://u_nfmiq7z9as-bullethit-449809.mp3" id="7_leddk"]
 
 [sub_resource type="Gradient" id="Gradient_33l23"]
 colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
@@ -281,6 +282,9 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1504939444]
 libraries/ = SubResource("AnimationLibrary_m1vyk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=10253532]
+stream = ExtResource("7_leddk")
 
 [connection signal="area_entered" from="HurtArea" to="." method="_on_hurt_area_area_entered"]
 [connection signal="body_entered" from="HurtArea" to="." method="_on_body_entered"]
