@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://dl2vw27m1khq8" path="res://world_environment.gdshader" id="1_x16oa"]
 [ext_resource type="Script" uid="uid://dcrfy3xpem7wd" path="res://color_rect.gd" id="2_wjtrd"]
 [ext_resource type="Shader" uid="uid://sv4oh2cggpan" path="res://vhsshader.gdshader" id="3_01g3i"]
+[ext_resource type="Script" uid="uid://dy661mv4xttcw" path="res://vhseffect.gd" id="4_t4ycb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjtrd"]
 shader = ExtResource("1_x16oa")
@@ -13,7 +14,7 @@ shader_parameter/outer_radius = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4ycb"]
 shader = ExtResource("3_01g3i")
 shader_parameter/pixel_size = 3.0
-shader_parameter/vhs_intensity = 3.0
+shader_parameter/vhs_intensity = 0.0
 shader_parameter/noise_intensity = 0.15
 shader_parameter/opacity = 0.5
 
@@ -37,3 +38,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_t4ycb")
