@@ -3,8 +3,8 @@ extends Node
 const JELLYFISH_SCENE = preload("res://scenes/first layer/jellyfish.tscn")
 const STINGRAY_SCENE = preload("res://scenes/stingray.tscn")
 
-const JELLYFISH_COUNT = 6
-const STINGRAY_COUNT = 4
+var JELLYFISH_COUNT = 6
+var STINGRAY_COUNT = 4
 const MIN_DIST_FROM_PLAYER = 350.0
 
 var _last_scene: Node = null
@@ -14,6 +14,8 @@ func _process(_delta: float) -> void:
 	var current = get_tree().current_scene
 	if current != null and current != _last_scene:
 		_last_scene = current
+		JELLYFISH_COUNT = 6 + UserInterface.level * 2
+		STINGRAY_COUNT = 4 + UserInterface.level * 1
 		call_deferred("_spawn_enemies")
 
 
