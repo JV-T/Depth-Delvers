@@ -907,15 +907,18 @@ grow_vertical = 0
 value = 100.0
 script = ExtResource("3_bo4dx")
 
-[node name="Label" type="Label" parent="User Interface" unique_id=1755779092]
-offset_left = 290.0
-offset_top = 565.0
-offset_right = 396.0
-offset_bottom = 626.0
+[node name="Label" type="Label" parent="User Interface" unique_id=1021804426]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 306.0
+offset_top = -88.0
+offset_right = 436.0
+offset_bottom = -27.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 44
 text = "fasdf"
 script = ExtResource("4_76toy")
-metadata/_edit_use_anchors_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1717291227]
 modulate = Color(0.050980393, 0.57254905, 1, 1)
