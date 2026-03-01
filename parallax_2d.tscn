@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://catwmr71y5q8o"]
 
-[ext_resource type="Texture2D" uid="uid://deiavao0xvpwm" path="res://background 4/1.png" id="1_2e25c"]
-[ext_resource type="Texture2D" uid="uid://f5sgj8sit1f3" path="res://background 4/2.png" id="2_svkel"]
-[ext_resource type="Texture2D" uid="uid://bbk1sa5hwjov1" path="res://background 4/3.png" id="3_ik0qw"]
+[ext_resource type="Texture2D" uid="uid://dvls173kyqa87" path="res://layers/far.png" id="1_36wu7"]
+[ext_resource type="Texture2D" uid="uid://ngfuihvdnrkj" path="res://layers/foregound-merged.png" id="2_cbjfi"]
 
 [node name="Parallax2D" type="Node2D" unique_id=13342049]
 
@@ -10,17 +9,17 @@
 scroll_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=308179917]
-position = Vector2(972.5, 543)
-scale = Vector2(3.3628473, 3.351852)
-texture = ExtResource("1_2e25c")
+position = Vector2(576.7778, 326.99994)
+scale = Vector2(4.470485, 3.351852)
+texture = ExtResource("1_36wu7")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1727495678]
-scroll_scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1497627990]
 position = Vector2(972.5, 543)
 scale = Vector2(10, 9.967)
-texture = ExtResource("2_svkel")
+texture = ExtResource("2_cbjfi")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1347799134]
 scroll_scale = Vector2(0.7, 0.7)
@@ -28,4 +27,3 @@ scroll_scale = Vector2(0.7, 0.7)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=522905447]
 position = Vector2(980, 1087)
 scale = Vector2(20, 19.934)
-texture = ExtResource("3_ik0qw")
