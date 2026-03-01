@@ -21,7 +21,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	# 1. Get movement input
 	if UserInterface.weapon != null and UserInterface.weapon.name == "Trident":
-		speed = 5000
+		speed = 1000
 	else:
 		speed=600
 	var input_vector = Vector2.ZERO

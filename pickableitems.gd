@@ -11,7 +11,13 @@ var player_in_range: bool = false
 
 
 func _ready() -> void:
-	item_data = WEAPONS[randi_range(0, WEAPONS.size() - 1)]
+	var randomnum = WEAPONS[randi_range(0, 6)]
+	if randomnum%2==1:
+		item_data=WEAPONS[0]
+	elif randomnum%2==0:
+		item_data=WEAPONS[1]
+	elif randomnum==5:
+		item_data=WEAPONS[2]
 	var itemnum=WEAPONS.find(item_data)
 	if itemnum==2:
 		var weapon="Katana"
