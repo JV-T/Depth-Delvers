@@ -18,8 +18,16 @@ func swap_item(item_data: Dictionary) -> Dictionary:
 	if item_data.type == "weapon":
 		var old = weapon if weapon != null else {}
 		weapon = item_data
-		damage = item_data.damage
-		swing_speed = item_data.swing_speed
+		damage = item_data.get("damage", 30)
+		swing_speed = item_data.get("swing_speed", 1.0)
+		return old
+	elif item_data.type == "powerup":
+		for i in range(powerups.size()):
+			if powerups[i] == null:
+				powerups[i] = item_data
+				return {}
+		var old = powerups[0]
+		powerups[0] = item_data
 		return old
 
 	elif item_data.type == "powerup":

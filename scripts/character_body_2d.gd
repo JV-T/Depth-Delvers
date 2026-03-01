@@ -115,6 +115,7 @@ func _update_weapon() -> void:
 		_equipped_weapon_name = w.name
 		weapon_anim.play("weapon/pickup")
 	if not weapon_anim.is_playing():
+		weapon_sprite.scale = Vector2(4, 4)
 		var s = w.weapon_scale
 		weapon_sprite.scale = Vector2(s, s)
 	weapon_sprite.position.x = _base_weapon_x + _stab_offset
