@@ -3,6 +3,7 @@ extends Node2D
 const WEAPONS = [
 	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png"},
 	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png"},
+	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png"}
 ]
 
 var item_data: Dictionary = {}
