@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://xj7ppbg44tyb"]
+
+[ext_resource type="Script" uid="uid://b5g3qbwm378fj" path="res://scenes/greenchest.gd" id="1_kx3ng"]
+[ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="2_eo7kh"]
+[ext_resource type="Texture2D" uid="uid://dsgem3hflcn5n" path="res://treasure chest/treasure chest0000.png" id="2_o2fsk"]
+[ext_resource type="Texture2D" uid="uid://b2u60y7vtjux2" path="res://treasure chest/treasure chest0001.png" id="3_eo7kh"]
+[ext_resource type="Texture2D" uid="uid://7vb1t0r2gx4y" path="res://treasure chest/treasure chest0002.png" id="4_nduc5"]
+[ext_resource type="Texture2D" uid="uid://cs2lpiga0j056" path="res://treasure chest/treasure chest0003.png" id="5_rlwrn"]
+[ext_resource type="Texture2D" uid="uid://clm1tj8sgeuy" path="res://treasure chest/treasure chest0004.png" id="6_yxlo5"]
+[ext_resource type="Texture2D" uid="uid://cj77dl40iq8ln" path="res://treasure chest/treasure chest0005.png" id="7_psbyw"]
+[ext_resource type="Texture2D" uid="uid://7tmhvs2vp72q" path="res://treasure chest/treasure chest0006.png" id="8_p588i"]
+[ext_resource type="Texture2D" uid="uid://dx22nt12cpn1i" path="res://treasure chest/treasure chest0007.png" id="9_3a47s"]
+
+[sub_resource type="Gradient" id="Gradient_nduc5"]
+colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rlwrn"]
+gradient = SubResource("Gradient_nduc5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yxlo5"]
+particle_flag_disable_z = true
+angle_min = -162.2
+angle_max = 45.00001
+spread = 31.765
+initial_velocity_min = -75.0
+initial_velocity_max = 75.89
+gravity = Vector3(0, -90, 0)
+scale_min = 0.25
+color_ramp = SubResource("GradientTexture1D_rlwrn")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5oag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o2fsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eo7kh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nduc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rlwrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yxlo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_psbyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p588i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3a47s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xutf"]
+size = Vector2(29, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg5gm"]
+size = Vector2(62, 68)
+
+[node name="greenchest" type="Node2D" unique_id=282726690]
+scale = Vector2(7, 7)
+script = ExtResource("1_kx3ng")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=641664257]
+position = Vector2(-2.4285707, -3.7142906)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 50
+texture = ExtResource("2_eo7kh")
+lifetime = 2.1599999999999997
+one_shot = true
+explosiveness = 0.75
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_yxlo5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1447394432]
+modulate = Color(0.24658588, 0.7476751, 0, 1)
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g5oag")
+frame = 7
+frame_progress = 1.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1199537304]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1196529911]
+position = Vector2(-0.5, 8)
+shape = SubResource("RectangleShape2D_0xutf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=654530511]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=430462603]
+shape = SubResource("RectangleShape2D_kg5gm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
