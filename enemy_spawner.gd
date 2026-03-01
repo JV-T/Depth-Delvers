@@ -2,11 +2,9 @@ extends Node
 
 const JELLYFISH_SCENE = preload("res://scenes/first layer/jellyfish.tscn")
 const STINGRAY_SCENE = preload("res://scenes/stingray.tscn")
-const GREEN_CHEST_SCENE = preload("res://scenes/greenchest.tscn")
 
 const JELLYFISH_COUNT = 6
 const STINGRAY_COUNT = 4
-const GREEN_CHEST_COUNT = 3
 const MIN_DIST_FROM_PLAYER = 350.0
 
 var _last_scene: Node = null
@@ -23,11 +21,6 @@ func _spawn_enemies() -> void:
 	var root = get_tree().current_scene
 	if root == null:
 		return
-
-	# Remove any static green chests baked into the level scenes
-	for child in root.get_children():
-		if child.name.begins_with("greenchest"):
-			child.queue_free()
 
 	var tilemap = _find_tilemap(root)
 	var player = root.get_node_or_null("miner")
@@ -67,8 +60,6 @@ func _spawn_enemies() -> void:
 		player_pos, min_cx, max_cx, min_cy, max_cy)
 	_spawn_group(STINGRAY_SCENE, STINGRAY_COUNT, root, tilemap, occupied,
 		player_pos, min_cx, max_cx, min_cy, max_cy)
-	_spawn_group(GREEN_CHEST_SCENE, GREEN_CHEST_COUNT, root, tilemap, occupied,
-		player_pos, min_cx, max_cx, min_cy, max_cy, true)
 
 
 func _spawn_group(
@@ -79,8 +70,7 @@ func _spawn_group(
 	occupied: Dictionary,
 	player_pos: Vector2,
 	min_cx: int, max_cx: int,
-	min_cy: int, max_cy: int,
-	near_wall: bool = false
+	min_cy: int, max_cy: int
 ) -> void:
 	var spawned = 0
 	var attempts = 0
@@ -95,11 +85,7 @@ func _spawn_group(
 			randi_range(min_cy, max_cy)
 		)
 
-		# Chests require a wall neighbour; enemies require fully open space
-		if near_wall:
-			if not _cell_is_border(cell, occupied):
-				continue
-		elif not _cell_is_open(cell, occupied):
+		if not _cell_is_open(cell, occupied):
 			continue
 
 		# Convert cell centre to world position
@@ -122,16 +108,6 @@ func _cell_is_open(cell: Vector2i, occupied: Dictionary) -> bool:
 				return false
 	return true
 
-
-func _cell_is_border(cell: Vector2i, occupied: Dictionary) -> bool:
-	# Cell itself must be free
-	if occupied.has(cell):
-		return false
-	# At least one of the 4 cardinal neighbours must be a wall tile
-	for delta in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
-		if occupied.has(cell + delta):
-			return true
-	return false
 
 
 func _find_tilemap(node: Node) -> Node:

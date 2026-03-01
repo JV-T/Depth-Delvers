@@ -22,15 +22,6 @@ func swap_item(item_data: Dictionary) -> Dictionary:
 		swing_speed = item_data.get("swing_speed", 1.0)
 		return old
 	elif item_data.type == "powerup":
-		for i in range(powerups.size()):
-			if powerups[i] == null:
-				powerups[i] = item_data
-				return {}
-		var old = powerups[0]
-		powerups[0] = item_data
-		return old
-
-	elif item_data.type == "powerup":
 		# Fill an empty slot first
 		for i in range(powerups.size()):
 			if powerups[i] == null:
