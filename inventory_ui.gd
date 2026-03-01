@@ -8,6 +8,8 @@ const SELECTED_BORDER = Color(1.0, 0.85, 0.0, 1.0)
 var weapon_icon: TextureRect
 var powerup_icons: Array = []
 var powerup_panels: Array = []
+var powerup_vboxes: Array = []
+var arrow_label: Label
 var selected_slot: int = 0
 
 func _ready() -> void:
@@ -21,13 +23,22 @@ func _ready() -> void:
 	container.add_child(weapon_vbox)
 	weapon_icon = weapon_vbox.get_meta("icon")
 	for i in range(2):
-		var pu_vbox = _make_slot("ITEM " + str(i + 1), NORMAL_BORDER)
+		var pu_vbox = _make_slot("ITEM " + str(i + 1), NORMAL_BORDER, str(i + 1))
 		container.add_child(pu_vbox)
 		powerup_icons.append(pu_vbox.get_meta("icon"))
 		powerup_panels.append(pu_vbox.get_meta("panel"))
+		powerup_vboxes.append(pu_vbox)
+
+	# Arrow indicator above the selected slot
+	arrow_label = Label.new()
+	arrow_label.text = "▼"
+	arrow_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	arrow_label.add_theme_font_size_override("font_size", 18)
+	arrow_label.add_theme_color_override("font_color", SELECTED_BORDER)
+	add_child(arrow_label)
 	_update_highlight()
 
-func _make_slot(label_text: String, border_color: Color) -> VBoxContainer:
+func _make_slot(label_text: String, border_color: Color, keybind: String = "") -> VBoxContainer:
 	var vbox = VBoxContainer.new()
 	vbox.add_theme_constant_override("separation", 4)
 	var label = Label.new()
@@ -57,6 +68,13 @@ func _make_slot(label_text: String, border_color: Color) -> VBoxContainer:
 	icon.offset_bottom = -8
 	panel.add_child(icon)
 	vbox.add_child(panel)
+	if keybind != "":
+		var key_label = Label.new()
+		key_label.text = "[" + keybind + "]"
+		key_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		key_label.add_theme_font_size_override("font_size", 12)
+		key_label.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7, 1.0))
+		vbox.add_child(key_label)
 	vbox.set_meta("icon", icon)
 	vbox.set_meta("panel", panel)
 	return vbox
@@ -83,6 +101,13 @@ func _update_highlight() -> void:
 			style.border_color = SELECTED_BORDER
 		else:
 			style.border_color = NORMAL_BORDER
+	# Position the arrow above the selected slot
+	if arrow_label and powerup_vboxes.size() > selected_slot:
+		await get_tree().process_frame
+		var vbox = powerup_vboxes[selected_slot]
+		var panel = powerup_panels[selected_slot]
+		var panel_center_x = vbox.global_position.x + panel.position.x + SLOT_SIZE / 2.0
+		arrow_label.position = Vector2(panel_center_x - 10, vbox.global_position.y - 22)
 
 
 func _consume_selected() -> void:
