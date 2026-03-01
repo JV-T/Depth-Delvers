@@ -54,6 +54,6 @@ func _on_area_entered(area: Area2D) -> void:
 		enemyhealth -= UserInterface.damage
 		if enemyhealth < 0:
 			queue_free()
-			UserInterface.oxygen += 50
+			UserInterface.oxygen += 20
 			if UserInterface.oxygen > 100:
 				UserInterface.oxygen = 100
