@@ -6,8 +6,9 @@ var downmeters = 0
 var knockback = 0
 var shakeamount = 0
 var damage = 30
+var swing_speed = 1.0
 # Inventory: 1 weapon slot, 2 powerup slots
-# Each item is a Dictionary: { name, type, texture_path }
+# Each item is a Dictionary: { name, type, texture_path, damage, swing_speed }
 var weapon = null
 var powerups = [null, null]
 
@@ -17,6 +18,8 @@ func swap_item(item_data: Dictionary) -> Dictionary:
 	if item_data.type == "weapon":
 		var old = weapon if weapon != null else {}
 		weapon = item_data
+		damage = item_data.damage
+		swing_speed = item_data.swing_speed
 		return old
 
 	elif item_data.type == "powerup":

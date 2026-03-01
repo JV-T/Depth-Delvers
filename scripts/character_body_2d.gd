@@ -58,20 +58,21 @@ func _physics_process(delta):
 			_do_swing()
 			$attackarea.monitorable = true
 			$attackarea.monitoring = true
-			$Timer.start()
+			$Timer.start(0.3 / UserInterface.swing_speed)
 
 
 func _do_swing() -> void:
 	_is_swinging = true
+	var spd = UserInterface.swing_speed
 	var tween = create_tween()
 	# Wind up behind (~70 degrees)
-	tween.tween_property(self, "_swing_offset", -1.2, 0.08) \
+	tween.tween_property(self, "_swing_offset", -1.2, 0.08 / spd) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	# Slash through in a wide arc (~160 degrees total sweep)
-	tween.tween_property(self, "_swing_offset", 1.6, 0.12) \
+	tween.tween_property(self, "_swing_offset", 1.6, 0.12 / spd) \
 		.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	# Snap back to rest
-	tween.tween_property(self, "_swing_offset", 0.0, 0.1) \
+	tween.tween_property(self, "_swing_offset", 0.0, 0.1 / spd) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_callback(func(): _is_swinging = false)
 
@@ -89,7 +90,8 @@ func _update_weapon() -> void:
 		_equipped_weapon_name = w.name
 		weapon_anim.play("weapon/pickup")
 	if not weapon_anim.is_playing():
-		weapon_sprite.scale = Vector2(4, 4)
+		var s = w.scale
+		weapon_sprite.scale = Vector2(s, s)
 
 
 func _on_timer_timeout() -> void:

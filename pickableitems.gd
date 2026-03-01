@@ -1,9 +1,9 @@
 extends Node2D
 
 const WEAPONS = [
-	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png"},
-	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png"},
-	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png"}
+	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png", "damage": 30, "swing_speed": 1.2, "scale": 4.0},
+	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png", "damage": 35, "swing_speed": 0.8, "scale": 4.0},
+	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 30, "swing_speed": 1.0, "scale": 3.0}
 ]
 
 var item_data: Dictionary = {}
