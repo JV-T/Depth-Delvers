@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c7b6vkjhjtawj" path="res://scenes/text_edit.gd" id="4_fh4ka"]
 [ext_resource type="Texture2D" uid="uid://c7ml23lvb2c6t" path="res://sprites/sheet.png" id="6_bradm"]
 [ext_resource type="Script" uid="uid://badcxlsojw6ep" path="res://scenes/nextlevel.gd" id="7_got4s"]
+[ext_resource type="PackedScene" uid="uid://xj7ppbg44tyb" path="res://scenes/greenchest.tscn" id="8_5mhml"]
 [ext_resource type="PackedScene" uid="uid://0veg74najmgo" path="res://scenes/chest.tscn" id="8_e40mx"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2r41h"]
@@ -956,5 +957,11 @@ position = Vector2(1401.0001, 2561.0002)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2032847015]
 position = Vector2(-71.5, -2144)
 shape = SubResource("RectangleShape2D_b72m1")
+
+[node name="greenchest" parent="." unique_id=282726690 instance=ExtResource("8_5mhml")]
+position = Vector2(-2631.0002, 1299)
+
+[node name="greenchest2" parent="." unique_id=260178159 instance=ExtResource("8_5mhml")]
+position = Vector2(2123, 1450)
 
 [connection signal="body_entered" from="nextlevel" to="nextlevel" method="_on_body_entered"]

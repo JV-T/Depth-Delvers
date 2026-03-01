@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ml23lvb2c6t" path="res://sprites/sheet.png" id="6_56gwk"]
 [ext_resource type="Script" uid="uid://badcxlsojw6ep" path="res://scenes/nextlevel.gd" id="7_ve5ok"]
 [ext_resource type="PackedScene" uid="uid://0veg74najmgo" path="res://scenes/chest.tscn" id="8_cleqw"]
+[ext_resource type="PackedScene" uid="uid://xj7ppbg44tyb" path="res://scenes/greenchest.tscn" id="8_hrcei"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2r41h"]
 tile_data = PackedInt32Array(0, 131072, 5, 1, 262144, 1, 2, 262144, 1, 3, 262144, 1, 4, 262144, 1, 5, 262144, 1, 6, 262144, 1, 7, 262144, 1, 8, 262144, 1, 9, 131072, 4)
@@ -929,11 +930,14 @@ script = ExtResource("7_ve5ok")
 position = Vector2(-217, 2911)
 shape = SubResource("RectangleShape2D_klq6b")
 
+[node name="Chest" parent="nextlevel" unique_id=282726690 instance=ExtResource("8_cleqw")]
+position = Vector2(-1015.9999, 1282.9999)
+
 [node name="Chest" parent="." unique_id=472621416 instance=ExtResource("8_cleqw")]
 position = Vector2(-405.00003, -108.00001)
 
 [node name="Chest2" parent="." unique_id=343273050 instance=ExtResource("8_cleqw")]
-position = Vector2(1914.9998, -386.99997)
+position = Vector2(1908, -380)
 
 [node name="Chest3" parent="." unique_id=60388143 instance=ExtResource("8_cleqw")]
 position = Vector2(986.0001, -1500.0001)
@@ -946,5 +950,14 @@ position = Vector2(-3338, 466.99994)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=257943762]
 position = Vector2(-71.5, -2144)
 shape = SubResource("RectangleShape2D_6ep0u")
+
+[node name="greenchest" parent="." unique_id=246451646 instance=ExtResource("8_hrcei")]
+position = Vector2(-3033, 2560)
+
+[node name="greenchest2" parent="." unique_id=2067283294 instance=ExtResource("8_hrcei")]
+position = Vector2(3949.9995, 2587)
+
+[node name="greenchest3" parent="." unique_id=1243282945 instance=ExtResource("8_hrcei")]
+position = Vector2(3495, -797)
 
 [connection signal="body_entered" from="nextlevel" to="nextlevel" method="_on_body_entered"]
