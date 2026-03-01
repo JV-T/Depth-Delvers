@@ -213,7 +213,7 @@ shape = SubResource("RectangleShape2D_g2brh")
 visible = false
 texture_filter = 1
 position = Vector2(75, 0)
-rotation = 1.5707964
+rotation = 0.95
 scale = Vector2(1e-05, 1e-05)
 
 [node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot" unique_id=617057560]

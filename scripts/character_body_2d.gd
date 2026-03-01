@@ -11,7 +11,12 @@ extends CharacterBody2D
 
 var _equipped_weapon_name: String = ""
 var _swing_offset: float = 0.0
+var _stab_offset: float = 0.0
+var _base_weapon_x: float = 0.0
 var _is_swinging: bool = false
+
+func _ready() -> void:
+	_base_weapon_x = weapon_sprite.position.x
 
 func _physics_process(delta):
 	# 1. Get movement input
@@ -56,7 +61,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack"):
 		if UserInterface.weapon != null and not _is_swinging:
 			UserInterface.shakeamount += 20
-			_do_swing()
+			if UserInterface.weapon.attack_type == "stab":
+				_do_stab()
+			else:
+				_do_swing()
 			$attackarea.monitorable = true
 			$attackarea.monitoring = true
 			$Timer.start(0.3 / UserInterface.swing_speed)
@@ -78,6 +86,22 @@ func _do_swing() -> void:
 	tween.tween_callback(func(): _is_swinging = false)
 
 
+func _do_stab() -> void:
+	_is_swinging = true
+	var spd = UserInterface.swing_speed
+	var tween = create_tween()
+	# Pull back slightly
+	tween.tween_property(self, "_stab_offset", -10.0, 0.06 / spd) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	# Thrust forward
+	tween.tween_property(self, "_stab_offset", 40.0, 0.10 / spd) \
+		.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	# Return to rest
+	tween.tween_property(self, "_stab_offset", 0.0, 0.14 / spd) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(func(): _is_swinging = false)
+
+
 func _update_weapon() -> void:
 	var w = UserInterface.weapon
 	if w == null:
@@ -93,6 +117,7 @@ func _update_weapon() -> void:
 	if not weapon_anim.is_playing():
 		var s = w.weapon_scale
 		weapon_sprite.scale = Vector2(s, s)
+	weapon_sprite.position.x = _base_weapon_x + _stab_offset
 
 
 func _on_timer_timeout() -> void:
