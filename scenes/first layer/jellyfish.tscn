@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="2_4q3rh"]
 [ext_resource type="Texture2D" uid="uid://cyx8ktgoiqp7s" path="res://jellyfish.png" id="2_jfish"]
 [ext_resource type="Texture2D" uid="uid://bnlv6k7wtf1wr" path="res://sprites/image-removebg-preview.png" id="3_a22yk"]
+[ext_resource type="Texture2D" uid="uid://cwdw2ioqag3om" path="res://Redsquare.png" id="4_mhlew"]
 [ext_resource type="Theme" uid="uid://d0s203toj4ts4" path="res://theme.tres" id="5_ppy4u"]
 
 [sub_resource type="Gradient" id="Gradient_a22yk"]
@@ -37,8 +38,20 @@ spread = 180.0
 initial_velocity_min = 117.07
 initial_velocity_max = 234.18
 gravity = Vector3(0, 0, 0)
-scale_min = 0.049999997
+scale_min = 0.02
 scale_max = 0.099999994
+color_ramp = SubResource("GradientTexture1D_vr0jt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_54wc8"]
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 180.00002
+spread = 180.0
+initial_velocity_min = 117.07
+initial_velocity_max = 234.18
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.02
 color_ramp = SubResource("GradientTexture1D_vr0jt")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m01wf"]
@@ -148,7 +161,7 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_mhlew")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=301668562]
-position = Vector2(39, -10)
+position = Vector2(-2, -37)
 emitting = false
 amount = 20
 texture = ExtResource("3_a22yk")
@@ -156,6 +169,16 @@ one_shot = true
 explosiveness = 0.75
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7jh1e")
+
+[node name="bloodeffect" type="GPUParticles2D" parent="." unique_id=2058957263]
+position = Vector2(6, -38)
+emitting = false
+amount = 20
+texture = ExtResource("4_mhlew")
+one_shot = true
+explosiveness = 0.75
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_54wc8")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1143005252]
 texture_filter = 1

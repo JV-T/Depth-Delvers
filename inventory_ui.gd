@@ -59,16 +59,6 @@ func refresh() -> void:
 	else:
 		weapon_icon.texture = null
 
-	for i in range(2):
-		if UserInterface.powerups[i] != null:
-			var item = UserInterface.powerups[i]
-			if item.has("texture"):
-				powerup_icons[i].texture = item["texture"]
-			else:
-				powerup_icons[i].texture = load(item.texture_path)
-		else:
-			powerup_icons[i].texture = null
-
 func restart() -> void:
 	weapon_icon.texture = null
 	for icon in powerup_icons:
