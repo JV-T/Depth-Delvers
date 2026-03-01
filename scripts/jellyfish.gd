@@ -16,6 +16,8 @@ var _initialized: bool = false
 
 
 func _ready() -> void:
+	enemyhealth = int(enemyhealth * pow(1.25, UserInterface.level))
+	$ProgressBar.max_value = enemyhealth
 	_phase = randf() * TAU
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)

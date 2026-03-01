@@ -13,6 +13,7 @@ var _player=null
 
 func _ready() -> void:
 	enemyhealth = int(enemyhealth * pow(1.25, UserInterface.level))
+	$ProgressBar.max_value = enemyhealth
 	# Randomise start time and direction so each stingray feels independent
 	_time = randf() * TAU
 	_direction = 1.0 if randf() > 0.5 else -1.0
