@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="2_cjqu5"]
 [ext_resource type="Texture2D" uid="uid://efgv87brwfak" path="res://rochen.png" id="2_ray"]
 [ext_resource type="Texture2D" uid="uid://bnlv6k7wtf1wr" path="res://sprites/image-removebg-preview.png" id="3_33l23"]
+[ext_resource type="Theme" uid="uid://d0s203toj4ts4" path="res://theme.tres" id="5_ond1r"]
 
 [sub_resource type="Gradient" id="Gradient_33l23"]
 colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
@@ -84,8 +85,6 @@ height = 157.99998
 radius = 74.00005
 height = 389.99994
 
-[sub_resource type="Theme" id="Theme_sfpyh"]
-
 [node name="Stingray" type="CharacterBody2D" unique_id=613965640]
 script = ExtResource("1_ray")
 
@@ -130,7 +129,7 @@ offset_left = -118.0
 offset_top = -122.0
 offset_right = 116.0
 offset_bottom = -95.0
-theme = SubResource("Theme_sfpyh")
+theme = ExtResource("5_ond1r")
 
 [node name="Timer" type="Timer" parent="." unique_id=1214946186]
 wait_time = 0.5

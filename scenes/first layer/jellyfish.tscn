@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="2_4q3rh"]
 [ext_resource type="Texture2D" uid="uid://cyx8ktgoiqp7s" path="res://jellyfish.png" id="2_jfish"]
 [ext_resource type="Texture2D" uid="uid://bnlv6k7wtf1wr" path="res://sprites/image-removebg-preview.png" id="3_a22yk"]
+[ext_resource type="Theme" uid="uid://d0s203toj4ts4" path="res://theme.tres" id="5_ppy4u"]
 
 [sub_resource type="Gradient" id="Gradient_a22yk"]
 colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
@@ -170,6 +171,7 @@ offset_left = -113.0
 offset_top = -128.0
 offset_right = 112.0
 offset_bottom = -101.0
+theme = ExtResource("5_ppy4u")
 
 [node name="Timer" type="Timer" parent="." unique_id=2009133716]
 wait_time = 0.5
