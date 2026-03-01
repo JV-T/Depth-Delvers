@@ -134,6 +134,7 @@ theme = SubResource("Theme_sfpyh")
 
 [node name="Timer" type="Timer" parent="." unique_id=1214946186]
 wait_time = 0.5
+one_shot = true
 
 [connection signal="area_entered" from="HurtArea" to="." method="_on_hurt_area_area_entered"]
 [connection signal="body_entered" from="HurtArea" to="." method="_on_body_entered"]

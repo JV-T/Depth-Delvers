@@ -171,6 +171,10 @@ offset_top = -128.0
 offset_right = 112.0
 offset_bottom = -101.0
 
+[node name="Timer" type="Timer" parent="." unique_id=2009133716]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

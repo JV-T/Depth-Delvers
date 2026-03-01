@@ -37,8 +37,9 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	$ProgressBar.value = enemyhealth
-	if _player_contact and !$GPUParticles2D2.emitting:
+	if _player_contact and !$GPUParticles2D2.emitting and $Timer.is_stopped():
 		$GPUParticles2D2.emitting = true
+		$Timer.start()
 		UserInterface.shakeamount += 50
 		UserInterface.knockback = -10
 		UserInterface.oxygen -= DAMAGE_PER_SECOND
