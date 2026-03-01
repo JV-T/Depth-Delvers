@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hungry Shark Evolution"
-run/main_scene="res://scenes/level.tscn"
+run/main_scene="uid://ew1tqrjoh82i"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 

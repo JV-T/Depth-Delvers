@@ -52,8 +52,10 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "attackarea":
 		enemyhealth -= UserInterface.damage
+		UserInterface.shakeamount += 40
 		if enemyhealth < 0:
 			queue_free()
+			UserInterface.shakeamount += 80
 			UserInterface.oxygen += 20
 			if UserInterface.oxygen > 100:
 				UserInterface.oxygen = 100

@@ -183,9 +183,6 @@ radius = 121.80723
 
 [node name="Player" type="CharacterBody2D" unique_id=297162121]
 script = ExtResource("1_ij6vw")
-speed = null
-rotation_speed = null
-rotation_offset = null
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=199248913]
 position = Vector2(5, -49)
@@ -203,7 +200,7 @@ scale = Vector2(1.1762463, 1.2072515)
 sprite_frames = SubResource("SpriteFrames_t53lx")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.22617063
+frame_progress = 0.98938394
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772646105]
 position = Vector2(1.0000005, 2.7499986)

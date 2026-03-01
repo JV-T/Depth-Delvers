@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 	if playertouching and Input.is_action_just_pressed("interact") and not opened:
 		$AnimatedSprite2D.play("default")
 		opened = true
-		UserInterface.shakeamount += 30
+		UserInterface.shakeamount += 50
 		PromptUI.hide_prompt()
 		$GPUParticles2D.emitting = true
 		var pickableinstance = pickableitem.instantiate()
