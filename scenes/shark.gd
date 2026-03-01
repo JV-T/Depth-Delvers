@@ -18,7 +18,7 @@ func _ready() -> void:
 	$Sprite2D.flip_h = _direction < 0.0
 	$HurtArea.body_entered.connect(_on_body_entered)
 	$HurtArea.body_exited.connect(_on_body_exited)
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(ody: Node2D) -> void:
 	if body.name == "miner":
 		_player_contact = true
 		_player = body
