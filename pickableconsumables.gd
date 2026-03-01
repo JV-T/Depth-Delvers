@@ -23,7 +23,7 @@ func _ready() -> void:
 	item_data = CONSUMABLES[randi_range(0, CONSUMABLES.size() - 1)].duplicate()
 	item_data["texture"] = _make_texture(item_data.region)
 	$"item sprite".texture = item_data.texture
-	$"item sprite".scale = Vector2(3, 3)
+	$"item sprite".scale = Vector2(0.5, 0.5)
 	$"item sprite/AnimationPlayer".play("open")
 
 	var area = Area2D.new()
