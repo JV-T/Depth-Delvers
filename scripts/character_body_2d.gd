@@ -36,7 +36,7 @@ func _physics_process(delta):
 		$playeranimation.flip_v = false  # facing right
 	elif velocity.x < 0:
 		$playeranimation.flip_v = true   # facing left
-	
+	UserInterface.shakeamount += (abs(velocity.x) + abs(velocity.y))/2000
 	# 3. Apply movement with collision
 	move_and_slide()
 
@@ -55,6 +55,7 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("attack"):
 		if UserInterface.weapon != null and not _is_swinging:
+			UserInterface.shakeamount += 20
 			_do_swing()
 			$attackarea.monitorable = true
 			$attackarea.monitoring = true

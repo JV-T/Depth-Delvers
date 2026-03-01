@@ -132,7 +132,6 @@ offset_bottom = -95.0
 theme = ExtResource("5_ond1r")
 
 [node name="Timer" type="Timer" parent="." unique_id=1214946186]
-wait_time = 0.5
 one_shot = true
 
 [connection signal="area_entered" from="HurtArea" to="." method="_on_hurt_area_area_entered"]
