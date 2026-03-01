@@ -12,6 +12,11 @@ var player_in_range: bool = false
 
 func _ready() -> void:
 	item_data = WEAPONS[randi_range(0, WEAPONS.size() - 1)]
+	var itemnum=WEAPONS.find(item_data)
+	if itemnum==2:
+		var weapon="Katana"
+	if itemnum==3:
+		var weapon="Trident"
 	$"item sprite".texture = load(item_data.texture_path)
 	var s = item_data.pickup_scale
 	$"item sprite".scale = Vector2(s, s)

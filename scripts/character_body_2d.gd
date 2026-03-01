@@ -17,6 +17,8 @@ var _is_swinging: bool = false
 
 func _ready() -> void:
 	_base_weapon_x = weapon_sprite.position.x
+	if pickableitems.weapon=="Trident":
+		speed=800
 
 func _physics_process(delta):
 	# 1. Get movement input
@@ -32,7 +34,6 @@ func _physics_process(delta):
 		# Smoothly rotate toward target angle
 		rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 		
-		# Move in the direction of input
 		velocity = input_vector.normalized() * speed * (UserInterface.knockback+1)
 		UserInterface.knockback *= 0.7
 	else:
