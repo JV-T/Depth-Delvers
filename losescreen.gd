@@ -5,7 +5,7 @@ func _process(delta: float) -> void:
 	if UserInterface.oxygen <= 0:
 		visible = true
 		get_tree().paused = true
-		$highscore.text = "Highscore: " + str(UserInterface.downmeters) + "m"
+		$highscore.text = "Score: " + str(UserInterface.downmeters) + "m"
 
 
 func _on_button_pressed() -> void:
