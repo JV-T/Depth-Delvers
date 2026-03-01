@@ -11,17 +11,14 @@ var player_in_range: bool = false
 
 
 func _ready() -> void:
-<<<<<<< HEAD
-	var randomnum = randi_range(5, 5)
+	var randomnum = 5
 	if randomnum%2==1 and randomnum!=5:
 		item_data=WEAPONS[0]
 	elif randomnum%2==0:
 		item_data=WEAPONS[1]
 	elif randomnum==5:
 		item_data=WEAPONS[2]
-=======
 	item_data = WEAPONS[randi_range(0, WEAPONS.size() - 1)]
->>>>>>> 62d058066bd8f7048929f7b83474b63ab4fec06f
 	var itemnum=WEAPONS.find(item_data)
 	if itemnum==2:
 		var weapon="Katana"
