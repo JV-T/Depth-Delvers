@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.flip_h = _direction < 0.0
 
 func _process(delta: float) -> void:
+	$ProgressBar.value = enemyhealth
 	if _player_contact and !$GPUParticles2D2.emitting:
 		$GPUParticles2D2.emitting = true
 		UserInterface.shakeamount += 50
