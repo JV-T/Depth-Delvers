@@ -122,6 +122,9 @@ _data = {
 &"pickup": SubResource("Animation_pickup")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vejd"]
+radius = 121.80723
+
 [node name="Player" type="CharacterBody2D" unique_id=297162121]
 script = ExtResource("1_ij6vw")
 
@@ -156,3 +159,8 @@ scale = Vector2(32, 32)
 
 [node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot" unique_id=617057560]
 libraries/weapon = SubResource("AnimationLibrary_weapon")
+
+[node name="attackarea" type="Area2D" parent="." unique_id=1587476186]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackarea" unique_id=268810144]
+shape = SubResource("CircleShape2D_4vejd")

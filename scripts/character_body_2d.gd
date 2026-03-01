@@ -52,6 +52,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack"):
 		if UserInterface.weapon != null and not _is_swinging:
 			_do_swing()
+			
 
 
 func _do_swing() -> void:
