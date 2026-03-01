@@ -54,6 +54,7 @@ func _on_hurt_area_area_entered(area: Area2D) -> void:
 	if area.name == "attackarea":
 		enemyhealth -= UserInterface.damage
 		UserInterface.shakeamount += 40
+		$bloodeffect.emitting = true
 		if enemyhealth < 0:
 			UserInterface.oxygen += 20
 			UserInterface.shakeamount += 80
