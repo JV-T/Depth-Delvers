@@ -12,6 +12,7 @@ var _player=null
 @export var enemyhealth = 100
 
 func _ready() -> void:
+	
 	enemyhealth = int(enemyhealth * pow(1.25, UserInterface.level))
 	$ProgressBar.max_value = enemyhealth
 	# Randomise start time and direction so each stingray feels independent
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 	if _player_contact and !$GPUParticles2D2.emitting and $Timer.is_stopped():
 		$GPUParticles2D2.emitting = true
 		$Timer.start()
+		GlobalWorldEnvironment.get_node("zap").zapeffect()
 		$AudioStreamPlayer2.play()
 		UserInterface.shakeamount += 50
 		UserInterface.knockback = -10

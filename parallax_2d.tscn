@@ -12,7 +12,7 @@
 scroll_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=308179917]
-modulate = Color(0.85814106, 0.85814106, 0.85814106, 1)
+modulate = Color(0.62959415, 0.62959415, 0.62959415, 1)
 texture_filter = 1
 position = Vector2(576.7778, 326.99994)
 scale = Vector2(4.470485, 3.351852)
@@ -23,7 +23,7 @@ scroll_scale = Vector2(0.1, 0.1)
 scroll_offset = Vector2(0, -1000)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1497627990]
-modulate = Color(0.85814106, 0.85814106, 0.85814106, 1)
+modulate = Color(0.62959415, 0.62959415, 0.62959415, 1)
 texture_filter = 1
 position = Vector2(972.5, 543)
 scale = Vector2(10, 9.967)
@@ -34,7 +34,7 @@ scroll_scale = Vector2(0.3, 0.3)
 scroll_offset = Vector2(0, -1000)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=522905447]
-modulate = Color(0.85814106, 0.85814106, 0.85814106, 1)
+modulate = Color(0.62959415, 0.62959415, 0.62959415, 1)
 texture_filter = 1
 position = Vector2(980, 1087)
 scale = Vector2(20, 19.934)
@@ -45,7 +45,7 @@ scroll_scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(0, -1000)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=1067426093]
-modulate = Color(0.85814106, 0.85814106, 0.85814106, 1)
+modulate = Color(0.62959415, 0.62959415, 0.62959415, 1)
 texture_filter = 1
 position = Vector2(980, 1087)
 scale = Vector2(20, 19.934)
@@ -57,7 +57,7 @@ scroll_offset = Vector2(0, -600)
 repeat_size = Vector2(5100, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D5" unique_id=1282388974]
-modulate = Color(0.85814106, 0.85814106, 0.85814106, 1)
+modulate = Color(0.62959415, 0.62959415, 0.62959415, 1)
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(980, 1087)

@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 	if _player_contact and !$GPUParticles2D2.emitting and $Timer.is_stopped():
 		UserInterface.knockback = -10
 		$AudioStreamPlayer2.play()
+		GlobalWorldEnvironment.get_node("zap").zapeffect()
 		UserInterface.oxygen -= DAMAGE_PER_SECOND
 		$Timer.start()
 		$GPUParticles2D2.emitting = true
