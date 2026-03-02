@@ -347,6 +347,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=278903295]
 libraries/ = SubResource("AnimationLibrary_7jh1e")
+speed_scale = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=542054320]
 stream = ExtResource("7_7jh1e")

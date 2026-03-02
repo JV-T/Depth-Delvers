@@ -301,6 +301,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1504939444]
 libraries/ = SubResource("AnimationLibrary_m1vyk")
+speed_scale = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=10253532]
 stream = ExtResource("7_leddk")
