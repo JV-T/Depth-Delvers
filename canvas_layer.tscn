@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2t50g0ko7e28" path="res://canvas_layer.gd" id="1_v2lfg"]
 [ext_resource type="AudioStream" uid="uid://ltdj01k46nmg" path="res://scenes/richardmultimedia-ocean-waves-250310.mp3" id="2_tg4cr"]
+[ext_resource type="AudioStream" uid="uid://cm6xdn185hqf2" path="res://dragon-studio-blizzard-transition-463210 (2).mp3" id="3_37rai"]
 
 [sub_resource type="Animation" id="Animation_v2lfg"]
 length = 0.001
@@ -60,3 +61,6 @@ libraries/ = SubResource("AnimationLibrary_37rai")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=946070514]
 stream = ExtResource("2_tg4cr")
 autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=591158486]
+stream = ExtResource("3_37rai")

@@ -3,6 +3,7 @@ extends CanvasLayer
 func transition(scenepath):
 	$AnimationPlayer.play("fadein")
 	await $AnimationPlayer.animation_finished
+	$AudioStreamPlayer2.playing = true
 	get_tree().change_scene_to_file(scenepath)
 	$AnimationPlayer.play_backwards("fadein")
 	get_tree().paused = false

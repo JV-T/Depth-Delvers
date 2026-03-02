@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 func _ready() -> void:
 	Parallax2d.visible = false
 	_add_title()
@@ -83,7 +82,24 @@ func _make_decoration() -> HBoxContainer:
 	hbox.add_child(line_r)
 	return hbox
 
+
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	Parallax2d.visible = true
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
 	LayerPopup.show_layer(1)
+
+
+func _on_button_pressed() -> void:
+	$Button.hide()
+	$Button2.hide()
+	$AnimatedSprite2D/AnimationPlayer.play("startinganimation")
+
+
+func _on_button_2_pressed() -> void:
+	$Button2/ColorPicker.visible = !$Button2/ColorPicker.visible
+
+
+func _on_color_picker_color_changed(color: Color) -> void:
+	UserInterface.colorpicked = color
+	$AnimatedSprite2D.modulate = color

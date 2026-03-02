@@ -16,6 +16,7 @@ var _base_weapon_x: float = 0.0
 var _is_swinging: bool = false
 
 func _ready() -> void:
+	$playeranimation.modulate = UserInterface.colorpicked
 	_base_weapon_x = weapon_sprite.position.x
 
 func _physics_process(delta):
