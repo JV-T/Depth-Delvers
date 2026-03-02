@@ -56,6 +56,7 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_hurt_area_area_entered(area: Area2D) -> void:
 	if area.name == "attackarea":
 		$AudioStreamPlayer3.play()
+		$AnimationPlayer.play("hit")
 		enemyhealth -= UserInterface.damage
 		UserInterface.shakeamount += 40
 		$bloodeffect.emitting = true
