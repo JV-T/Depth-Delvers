@@ -41,7 +41,7 @@ func _ready() -> void:
 
 	# Arrow indicator above the selected slot
 	arrow_label = Label.new()
-	arrow_label.text = "▼"
+	arrow_label.text = "↓"
 	arrow_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	arrow_label.add_theme_font_size_override("font_size", 18)
 	arrow_label.add_theme_color_override("font_color", SELECTED_BORDER)
