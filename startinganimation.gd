@@ -10,6 +10,9 @@ func _ready() -> void:
 	_add_title()
 	_style_buttons()
 	_create_settings_menu()
+	# Hold the sprite still on the first frame during the menu
+	$AnimatedSprite2D.stop()
+	$AnimatedSprite2D.frame = 0
 
 func _setup_button_theme() -> void:
 	button_theme = Theme.new()
@@ -306,6 +309,7 @@ func _on_button_pressed() -> void:
 	$Button2.hide()
 	$Button3.hide()
 	$ColorPicker.hide()
+	$AnimatedSprite2D.play("default")
 	$AnimatedSprite2D/AnimationPlayer.play("startinganimation")
 
 
