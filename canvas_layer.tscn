@@ -64,3 +64,7 @@ autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=591158486]
 stream = ExtResource("3_37rai")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1296193213]
+offset_right = 40.0
+offset_bottom = 40.0

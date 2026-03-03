@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://byydsj5eyoc42" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://cgwrtuuom703m" path="res://people/scuba-stu-pack-lrg-removebg-preview.png" id="2_g2brh"]
+[ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_ws0vm"]
 [ext_resource type="Texture2D" uid="uid://cs1irhd3p6mhb" path="res://Swimming_Damaged.png" id="3_ws0vm"]
-[ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="4_4vejd"]
 [ext_resource type="AudioStream" uid="uid://bxobe8yp4ra8k" path="res://scripts/musicholder-sword-sound-260274.mp3" id="5_ws0vm"]
 
 [sub_resource type="Gradient" id="Gradient_4vejd"]
@@ -189,7 +189,7 @@ script = ExtResource("1_ij6vw")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=199248913]
 position = Vector2(11, -25)
 amount = 40
-texture = ExtResource("4_4vejd")
+texture = ExtResource("2_ws0vm")
 lifetime = 2.1599999999999997
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ws0vm")
@@ -202,7 +202,8 @@ scale = Vector2(2.5677304, 2.608171)
 sprite_frames = SubResource("SpriteFrames_t53lx")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.98938394
+frame = 1
+frame_progress = 0.11122159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772646105]
 position = Vector2(10, -6.9999995)

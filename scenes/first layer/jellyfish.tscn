@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rsqkqgxu50of"]
 
 [ext_resource type="Script" uid="uid://diayty2mcxwv7" path="res://scripts/jellyfish.gd" id="1_jfish"]
-[ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="2_4q3rh"]
+[ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_dba2c"]
 [ext_resource type="Texture2D" uid="uid://cyx8ktgoiqp7s" path="res://jellyfish.png" id="2_jfish"]
 [ext_resource type="Texture2D" uid="uid://bnlv6k7wtf1wr" path="res://sprites/image-removebg-preview.png" id="3_a22yk"]
 [ext_resource type="Texture2D" uid="uid://cwdw2ioqag3om" path="res://Redsquare.png" id="4_mhlew"]
@@ -301,7 +301,7 @@ script = ExtResource("1_jfish")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1024882618]
 position = Vector2(5, -49)
 amount = 25
-texture = ExtResource("2_4q3rh")
+texture = ExtResource("2_dba2c")
 lifetime = 2.1599999999999997
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_mhlew")

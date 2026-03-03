@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cinr1kg4y0nm7"]
 
 [ext_resource type="Script" uid="uid://cbpi3q8i5cr0a" path="res://scripts/stingray.gd" id="1_ray"]
-[ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="2_cjqu5"]
 [ext_resource type="Texture2D" uid="uid://efgv87brwfak" path="res://rochen.png" id="2_ray"]
+[ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_yc42p"]
 [ext_resource type="Texture2D" uid="uid://bnlv6k7wtf1wr" path="res://sprites/image-removebg-preview.png" id="3_33l23"]
 [ext_resource type="Texture2D" uid="uid://cwdw2ioqag3om" path="res://Redsquare.png" id="4_vr0jt"]
 [ext_resource type="Theme" uid="uid://d0s203toj4ts4" path="res://theme.tres" id="5_ond1r"]
@@ -246,7 +246,7 @@ script = ExtResource("1_ray")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2101799373]
 position = Vector2(39, -9)
 amount = 25
-texture = ExtResource("2_cjqu5")
+texture = ExtResource("2_yc42p")
 lifetime = 2.1599999999999997
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_vr0jt")

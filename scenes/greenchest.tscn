@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xj7ppbg44tyb"]
 
 [ext_resource type="Script" uid="uid://b5g3qbwm378fj" path="res://scenes/greenchest.gd" id="1_kx3ng"]
-[ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="2_eo7kh"]
+[ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_eo7kh"]
 [ext_resource type="Texture2D" uid="uid://dsgem3hflcn5n" path="res://treasure chest/treasure chest0000.png" id="2_o2fsk"]
 [ext_resource type="Texture2D" uid="uid://b2u60y7vtjux2" path="res://treasure chest/treasure chest0001.png" id="3_eo7kh"]
 [ext_resource type="Texture2D" uid="uid://7vb1t0r2gx4y" path="res://treasure chest/treasure chest0002.png" id="4_nduc5"]
@@ -71,7 +71,7 @@ scale = Vector2(7, 7)
 script = ExtResource("1_kx3ng")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=641664257]
-position = Vector2(-2.4285707, -3.7142906)
+position = Vector2(0.42857146, 0.57142854)
 scale = Vector2(0.99999994, 0.99999994)
 emitting = false
 amount = 50
