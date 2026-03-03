@@ -286,6 +286,7 @@ shape = SubResource("CapsuleShape2D_body")
 [node name="HurtArea" type="Area2D" parent="." unique_id=719937315]
 
 [node name="HurtShape" type="CollisionShape2D" parent="HurtArea" unique_id=2022816422]
+position = Vector2(-3, 4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hurt")
 

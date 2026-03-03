@@ -318,6 +318,8 @@ func _on_button_pressed() -> void:
 func _on_button_2_pressed() -> void:
 	$ColorPicker.visible = !$ColorPicker.visible
 	
+#func _on_button_4_pressed()->void:
+	
 
 func _on_color_picker_color_changed(color: Color) -> void:
 	# Ensure the color is never completely black by boosting the minimum brightness
