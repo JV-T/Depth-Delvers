@@ -71,7 +71,7 @@ scale = Vector2(7, 7)
 script = ExtResource("1_kx3ng")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=641664257]
-position = Vector2(0.42857146, 0.57142854)
+position = Vector2(-0.28571427, 1.1428571)
 scale = Vector2(0.99999994, 0.99999994)
 emitting = false
 amount = 50

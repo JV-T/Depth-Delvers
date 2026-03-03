@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c2t50g0ko7e28" path="res://canvas_layer.gd" id="1_v2lfg"]
 [ext_resource type="AudioStream" uid="uid://ltdj01k46nmg" path="res://scenes/richardmultimedia-ocean-waves-250310.mp3" id="2_tg4cr"]
 [ext_resource type="AudioStream" uid="uid://cm6xdn185hqf2" path="res://dragon-studio-blizzard-transition-463210 (2).mp3" id="3_37rai"]
+[ext_resource type="Texture2D" uid="uid://ch1vv48kvuefx" path="res://treasure chest/pause_icon.png" id="4_0qrqu"]
 
 [sub_resource type="Animation" id="Animation_v2lfg"]
 length = 0.001
@@ -65,6 +66,47 @@ autoplay = true
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=591158486]
 stream = ExtResource("3_37rai")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1296193213]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=430804709]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = -1.0
+offset_right = -3.0
+offset_bottom = 63.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_0qrqu")
+
+[node name="Control" type="Control" parent="." unique_id=1977011538]
+visible = false
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control" unique_id=760254716]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 401.0
+offset_right = 785.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 100
+text = "Unpause"
+
+[node name="Label" type="Label" parent="Control" unique_id=935071222]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 198.0
+offset_top = 128.0
+offset_right = 861.0
+offset_bottom = 401.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "Paused"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
