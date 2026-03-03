@@ -10,7 +10,6 @@ func _ready() -> void:
 	_add_title()
 	_style_buttons()
 	_create_settings_menu()
-	# Hold the sprite still on the first frame during the menu
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.frame = 0
 
@@ -173,7 +172,7 @@ func _style_buttons() -> void:
 	move_child(menu_bg, 0)
 	
 	# Apply theme to all buttons
-	for button in [$Button, $Button2, $Button3]:
+	for button in [$Button, $Button2, $Button3,$Button4]:
 		button.theme = button_theme
 		button.add_theme_font_size_override("font_size", 36)
 		button.custom_minimum_size = Vector2(220, 50)
@@ -281,6 +280,7 @@ func _on_settings_pressed() -> void:
 	$Button.hide()
 	$Button2.hide()
 	$Button3.hide()
+	$Button4.hide()
 	$ColorPicker.hide()
 
 
@@ -289,6 +289,7 @@ func _on_settings_back() -> void:
 	$Button.show()
 	$Button2.show()
 	$Button3.show()
+	$Button4.show()
 
 
 func _on_world_env_toggled(toggled_on: bool) -> void:
@@ -308,6 +309,7 @@ func _on_button_pressed() -> void:
 	$Button.hide()
 	$Button2.hide()
 	$Button3.hide()
+	$Button4.hide()
 	$ColorPicker.hide()
 	$AnimatedSprite2D.play("default")
 	$AnimatedSprite2D/AnimationPlayer.play("startinganimation")
@@ -315,7 +317,9 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	$ColorPicker.visible = !$ColorPicker.visible
-
+	
+func _on_button_4_pressed()->void:
+	
 
 func _on_color_picker_color_changed(color: Color) -> void:
 	# Ensure the color is never completely black by boosting the minimum brightness

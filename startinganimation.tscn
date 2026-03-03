@@ -228,6 +228,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Customize"
 
+[node name="Button4" type="Button" parent="." unique_id=1291445860]
+offset_left = 465.0
+offset_top = 505.0
+offset_right = 687.0
+offset_bottom = 567.0
+pivot_offset = Vector2(46, 189)
+text = "Tutorial"
+
 [connection signal="animation_finished" from="AnimatedSprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]
