@@ -10,7 +10,6 @@ func _ready() -> void:
 	_add_title()
 	_style_buttons()
 	_create_settings_menu()
-	# Hold the sprite still on the first frame during the menu
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.frame = 0
 
@@ -318,7 +317,9 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	$ColorPicker.visible = !$ColorPicker.visible
-
+	
+func _on_button_4_pressed()->void:
+	
 
 func _on_color_picker_color_changed(color: Color) -> void:
 	# Ensure the color is never completely black by boosting the minimum brightness
