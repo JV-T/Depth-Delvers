@@ -46,13 +46,7 @@ func _physics_process(delta):
 
 	# Weapon follows the direction the player is facing (movement rotation)
 	var facing_angle = rotation - rotation_offset
-	if cos(facing_angle) >= 0.0:
-		weapon_pivot.scale.x = 1.0
-		weapon_pivot.rotation = facing_angle + _swing_offset
-	else:
-		weapon_pivot.scale.x = -1.0
-		weapon_pivot.rotation = PI - facing_angle - _swing_offset
-
+	weapon_pivot.rotation = facing_angle + _swing_offset
 	_update_weapon()
 
 	if Input.is_action_just_pressed("attack"):
