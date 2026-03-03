@@ -14,7 +14,8 @@ var active_timers: Dictionary = {}  # "Speed Potion" -> Timer, "Damage Potion" -
 # Inventory: 1 weapon slot, 2 powerup slots
 var weapon = null
 var powerups = [null, null]
-var colorpicked: Color
+var colorpicked = Color(1, 1, 1, 1)
+var world_environment_enabled: bool = true
 
 
 # Always places the item into its slot. Returns the displaced item (or {} if slot was empty).

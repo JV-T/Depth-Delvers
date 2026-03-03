@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://sv4oh2cggpan" path="res://vhsshader.gdshader" id="3_01g3i"]
 [ext_resource type="Script" uid="uid://dy661mv4xttcw" path="res://vhseffect.gd" id="4_t4ycb"]
 [ext_resource type="Script" uid="uid://b020ur11jxggo" path="res://zapeffect.gd" id="5_x002e"]
+[ext_resource type="Script" path="res://world_environment.gd" id="6_env"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjtrd"]
 shader = ExtResource("1_x16oa")
@@ -86,6 +87,7 @@ _data = {
 }
 
 [node name="postprocessing" type="CanvasLayer" unique_id=742937369]
+script = ExtResource("6_env")
 layer = 0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=330196780]
