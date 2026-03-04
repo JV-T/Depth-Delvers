@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgwrtuuom703m" path="res://people/scuba-stu-pack-lrg-removebg-preview.png" id="2_g2brh"]
 [ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_ws0vm"]
 [ext_resource type="Texture2D" uid="uid://cs1irhd3p6mhb" path="res://Swimming_Damaged.png" id="3_ws0vm"]
+[ext_resource type="Texture2D" uid="uid://blewg3ffgjeil" path="res://Sword Pack/trident.png" id="5_rhr3r"]
 [ext_resource type="AudioStream" uid="uid://bxobe8yp4ra8k" path="res://scripts/musicholder-sword-sound-260274.mp3" id="5_ws0vm"]
 
 [sub_resource type="Gradient" id="Gradient_4vejd"]
@@ -211,13 +212,14 @@ scale = Vector2(2.1209679, 2.1209674)
 shape = SubResource("RectangleShape2D_g2brh")
 
 [node name="WeaponPivot" type="Node2D" parent="." unique_id=1937915166]
+position = Vector2(10, -1)
 
 [node name="WeaponSprite" type="Sprite2D" parent="WeaponPivot" unique_id=1862105497]
-visible = false
 texture_filter = 1
-position = Vector2(75, 0)
-rotation = 0.9
-scale = Vector2(1e-05, 1e-05)
+position = Vector2(-2.0000076, -101.00001)
+rotation = -0.8303973
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_rhr3r")
 
 [node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot" unique_id=617057560]
 libraries/weapon = SubResource("AnimationLibrary_weapon")
