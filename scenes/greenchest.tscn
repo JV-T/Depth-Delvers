@@ -2,14 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5g3qbwm378fj" path="res://scenes/greenchest.gd" id="1_kx3ng"]
 [ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_eo7kh"]
-[ext_resource type="Texture2D" uid="uid://dsgem3hflcn5n" path="res://treasure chest/treasure chest0000.png" id="2_o2fsk"]
-[ext_resource type="Texture2D" uid="uid://b2u60y7vtjux2" path="res://treasure chest/treasure chest0001.png" id="3_eo7kh"]
-[ext_resource type="Texture2D" uid="uid://7vb1t0r2gx4y" path="res://treasure chest/treasure chest0002.png" id="4_nduc5"]
-[ext_resource type="Texture2D" uid="uid://cs2lpiga0j056" path="res://treasure chest/treasure chest0003.png" id="5_rlwrn"]
-[ext_resource type="Texture2D" uid="uid://clm1tj8sgeuy" path="res://treasure chest/treasure chest0004.png" id="6_yxlo5"]
-[ext_resource type="Texture2D" uid="uid://cj77dl40iq8ln" path="res://treasure chest/treasure chest0005.png" id="7_psbyw"]
-[ext_resource type="Texture2D" uid="uid://7tmhvs2vp72q" path="res://treasure chest/treasure chest0006.png" id="8_p588i"]
-[ext_resource type="Texture2D" uid="uid://dx22nt12cpn1i" path="res://treasure chest/treasure chest0007.png" id="9_3a47s"]
+[ext_resource type="Texture2D" uid="uid://dq3211rnw3gli" path="res://treasure chest/spritesheet (1).png" id="3_c16ph"]
 
 [sub_resource type="Gradient" id="Gradient_nduc5"]
 colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
@@ -28,35 +21,39 @@ gravity = Vector3(0, -90, 0)
 scale_min = 0.25
 color_ramp = SubResource("GradientTexture1D_rlwrn")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nccv1"]
+atlas = ExtResource("3_c16ph")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p6sy"]
+atlas = ExtResource("3_c16ph")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8rmb"]
+atlas = ExtResource("3_c16ph")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8wxu"]
+atlas = ExtResource("3_c16ph")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g5oag"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_o2fsk")
+"texture": SubResource("AtlasTexture_nccv1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_eo7kh")
+"texture": SubResource("AtlasTexture_3p6sy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nduc5")
+"texture": SubResource("AtlasTexture_q8rmb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_rlwrn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_yxlo5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_psbyw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_p588i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_3a47s")
+"texture": SubResource("AtlasTexture_h8wxu")
 }],
 "loop": false,
-"name": &"default",
+"name": &"chest_open",
 "speed": 5.0
 }]
 
@@ -86,8 +83,7 @@ process_material = SubResource("ParticleProcessMaterial_yxlo5")
 modulate = Color(0.24658588, 0.7476751, 0, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g5oag")
-frame = 7
-frame_progress = 1.0
+animation = &"chest_open"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1199537304]
 

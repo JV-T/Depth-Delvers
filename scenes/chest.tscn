@@ -1,15 +1,8 @@
 [gd_scene format=3 uid="uid://0veg74najmgo"]
 
 [ext_resource type="Script" uid="uid://dvxucm5vtakhs" path="res://scenes/chest.gd" id="1_8me8i"]
-[ext_resource type="Texture2D" uid="uid://dsgem3hflcn5n" path="res://treasure chest/treasure chest0000.png" id="1_kg5gm"]
-[ext_resource type="Texture2D" uid="uid://b2u60y7vtjux2" path="res://treasure chest/treasure chest0001.png" id="2_8me8i"]
 [ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_udamv"]
-[ext_resource type="Texture2D" uid="uid://7vb1t0r2gx4y" path="res://treasure chest/treasure chest0002.png" id="3_lfymr"]
-[ext_resource type="Texture2D" uid="uid://cs2lpiga0j056" path="res://treasure chest/treasure chest0003.png" id="4_udamv"]
-[ext_resource type="Texture2D" uid="uid://clm1tj8sgeuy" path="res://treasure chest/treasure chest0004.png" id="5_up8i7"]
-[ext_resource type="Texture2D" uid="uid://cj77dl40iq8ln" path="res://treasure chest/treasure chest0005.png" id="6_nnvde"]
-[ext_resource type="Texture2D" uid="uid://7tmhvs2vp72q" path="res://treasure chest/treasure chest0006.png" id="7_sj8sc"]
-[ext_resource type="Texture2D" uid="uid://dx22nt12cpn1i" path="res://treasure chest/treasure chest0007.png" id="8_euan8"]
+[ext_resource type="Texture2D" uid="uid://dq3211rnw3gli" path="res://treasure chest/spritesheet (1).png" id="3_yue2o"]
 [ext_resource type="AudioStream" uid="uid://cijlri0xxrfy" path="res://freesound_community-chest-opening-87569.mp3" id="11_udamv"]
 
 [sub_resource type="Gradient" id="Gradient_udamv"]
@@ -29,32 +22,36 @@ gravity = Vector3(0, -90, 0)
 scale_min = 0.25
 color_ramp = SubResource("GradientTexture1D_ws0vm")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhylo"]
+atlas = ExtResource("3_yue2o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w02o5"]
+atlas = ExtResource("3_yue2o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilhio"]
+atlas = ExtResource("3_yue2o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg5gm"]
+atlas = ExtResource("3_yue2o")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g5oag"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_kg5gm")
+"texture": SubResource("AtlasTexture_yhylo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_8me8i")
+"texture": SubResource("AtlasTexture_w02o5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_lfymr")
+"texture": SubResource("AtlasTexture_ilhio")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_udamv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_up8i7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_nnvde")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_sj8sc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_euan8")
+"texture": SubResource("AtlasTexture_kg5gm")
 }],
 "loop": false,
 "name": &"default",
@@ -86,7 +83,6 @@ process_material = SubResource("ParticleProcessMaterial_up8i7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1447394432]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g5oag")
-frame = 7
 frame_progress = 1.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1199537304]

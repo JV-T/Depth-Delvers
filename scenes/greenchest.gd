@@ -24,7 +24,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _process(_delta: float) -> void:
 	if playertouching and Input.is_action_just_pressed("interact") and not opened:
-		$AnimatedSprite2D.play("default")
+		$AnimatedSprite2D.play("chest_open")
 		opened = true
 		PromptUI.hide_prompt()
 		$GPUParticles2D.emitting = true
