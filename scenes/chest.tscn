@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvxucm5vtakhs" path="res://scenes/chest.gd" id="1_8me8i"]
 [ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_udamv"]
-[ext_resource type="Texture2D" uid="uid://dye2bdvih07sg" path="res://spritesheet.webp" id="3_yue2o"]
+[ext_resource type="Texture2D" uid="uid://dq3211rnw3gli" path="res://treasure chest/spritesheet (1).png" id="3_yue2o"]
 [ext_resource type="AudioStream" uid="uid://cijlri0xxrfy" path="res://freesound_community-chest-opening-87569.mp3" id="11_udamv"]
 
 [sub_resource type="Gradient" id="Gradient_udamv"]
@@ -24,19 +24,19 @@ color_ramp = SubResource("GradientTexture1D_ws0vm")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yhylo"]
 atlas = ExtResource("3_yue2o")
-region = Rect2(64, 0, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w02o5"]
 atlas = ExtResource("3_yue2o")
-region = Rect2(96, 0, 32, 32)
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilhio"]
 atlas = ExtResource("3_yue2o")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg5gm"]
 atlas = ExtResource("3_yue2o")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g5oag"]
 animations = [{
@@ -55,7 +55,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 3.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xutf"]
@@ -82,10 +82,7 @@ process_material = SubResource("ParticleProcessMaterial_up8i7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1447394432]
 texture_filter = 1
-position = Vector2(0, 3)
-scale = Vector2(1.165, 1.165)
 sprite_frames = SubResource("SpriteFrames_g5oag")
-frame = 3
 frame_progress = 1.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1199537304]
