@@ -29,7 +29,6 @@ GlobalWorldEnvironment="*uid://bd75ipswg6qls"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

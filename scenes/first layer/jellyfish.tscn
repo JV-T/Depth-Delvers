@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://diayty2mcxwv7" path="res://scripts/jellyfish.gd" id="1_jfish"]
 [ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="2_dba2c"]
-[ext_resource type="Texture2D" uid="uid://cyx8ktgoiqp7s" path="res://jellyfish.png" id="2_jfish"]
 [ext_resource type="Texture2D" uid="uid://bnlv6k7wtf1wr" path="res://sprites/image-removebg-preview.png" id="3_a22yk"]
 [ext_resource type="Texture2D" uid="uid://cwdw2ioqag3om" path="res://Redsquare.png" id="4_mhlew"]
+[ext_resource type="Texture2D" uid="uid://d2oa24qb7atip" path="res://spritesheet_4.webp" id="5_dba2c"]
 [ext_resource type="Theme" uid="uid://d0s203toj4ts4" path="res://theme.tres" id="5_ppy4u"]
 [ext_resource type="AudioStream" uid="uid://dhvjwc2m32i4a" path="res://u_nfmiq7z9as-bullethit-449809.mp3" id="7_7jh1e"]
 [ext_resource type="AudioStream" uid="uid://cjyfew2xl53lk" path="res://dragon-studio-zap-hit-474055.mp3" id="8_54wc8"]
@@ -57,100 +57,30 @@ scale_min = 0.01
 scale_max = 0.02
 color_ramp = SubResource("GradientTexture1D_vr0jt")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m01wf"]
-atlas = ExtResource("2_jfish")
-region = Rect2(0, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4q3rh"]
-atlas = ExtResource("2_jfish")
-region = Rect2(48, 0, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a22yk"]
-atlas = ExtResource("2_jfish")
-region = Rect2(48, 64, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppy4u"]
-atlas = ExtResource("2_jfish")
-region = Rect2(96, 64, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mhlew"]
-atlas = ExtResource("2_jfish")
-region = Rect2(96, 128, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jh1e"]
-atlas = ExtResource("2_jfish")
-region = Rect2(96, 192, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_54wc8"]
-atlas = ExtResource("2_jfish")
-region = Rect2(48, 192, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dba2c"]
-atlas = ExtResource("2_jfish")
-region = Rect2(0, 192, 48, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5by0h"]
-atlas = ExtResource("2_jfish")
-region = Rect2(0, 128, 48, 64)
+atlas = ExtResource("5_dba2c")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fogw"]
-atlas = ExtResource("2_jfish")
-region = Rect2(0, 64, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iorp8"]
-atlas = ExtResource("2_jfish")
-region = Rect2(48, 128, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xdk81"]
-atlas = ExtResource("2_jfish")
-region = Rect2(96, 0, 48, 64)
+atlas = ExtResource("5_dba2c")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5vhqm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m01wf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4q3rh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a22yk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ppy4u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mhlew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7jh1e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_54wc8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dba2c")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_5by0h")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2fogw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iorp8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xdk81")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfish"]
-radius = 89.27486
+radius = 103.69667
 
 [sub_resource type="Animation" id="Animation_7jh1e"]
 length = 0.001
@@ -299,7 +229,7 @@ _data = {
 script = ExtResource("1_jfish")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1024882618]
-position = Vector2(5, -49)
+position = Vector2(4, -59)
 amount = 25
 texture = ExtResource("2_dba2c")
 lifetime = 2.1599999999999997
@@ -328,11 +258,14 @@ process_material = SubResource("ParticleProcessMaterial_54wc8")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1143005252]
 texture_filter = 1
+position = Vector2(0.99999994, 0)
 scale = Vector2(3, 2.813)
 sprite_frames = SubResource("SpriteFrames_5vhqm")
 autoplay = "default"
+frame_progress = 0.08420073
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1126344536]
+position = Vector2(-2, 11)
 shape = SubResource("CircleShape2D_jfish")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=434433046]

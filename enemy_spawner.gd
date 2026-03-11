@@ -2,9 +2,10 @@ extends Node
 
 const JELLYFISH_SCENE = preload("res://scenes/first layer/jellyfish.tscn")
 const STINGRAY_SCENE = preload("res://scenes/stingray.tscn")
-
+const CRAB_SCENE = preload("res://scenes/babycrab.tscn")
 var JELLYFISH_COUNT = 6
 var STINGRAY_COUNT = 4
+var CRAB_COUNT = 10
 const MIN_DIST_FROM_PLAYER = 350.0
 
 var _last_scene: Node = null
@@ -16,52 +17,56 @@ func _process(_delta: float) -> void:
 		_last_scene = current
 		JELLYFISH_COUNT = 6 + UserInterface.level * 2
 		STINGRAY_COUNT = 4 + UserInterface.level * 1
+		CRAB_COUNT = 10 + UserInterface.level * 2
 		call_deferred("_spawn_enemies")
 
 
 func _spawn_enemies() -> void:
-	var root = get_tree().current_scene
-	if root == null:
-		return
+	if get_tree().current_scene.scene_file_path != "res://scenes/bosslevel.tscn":
+		var root = get_tree().current_scene
+		if root == null:
+			return
 
-	var tilemap = _find_tilemap(root)
-	var player = root.get_node_or_null("miner")
-	if tilemap == null or player == null:
-		return
+		var tilemap = _find_tilemap(root)
+		var player = root.get_node_or_null("miner")
+		if tilemap == null or player == null:
+			return
 
-	var used_cells: Array = Array(tilemap.get_used_cells())
-	if used_cells.is_empty():
-		return
+		var used_cells: Array = Array(tilemap.get_used_cells())
+		if used_cells.is_empty():
+			return
 
-	# Build occupied set in cell space
-	var occupied: Dictionary = {}
-	for cell in used_cells:
-		occupied[cell] = true
+		# Build occupied set in cell space
+		var occupied: Dictionary = {}
+		for cell in used_cells:
+			occupied[cell] = true
 
-	# Compute cell-space bounds
-	var min_cx: int = used_cells[0].x
-	var max_cx: int = used_cells[0].x
-	var min_cy: int = used_cells[0].y
-	var max_cy: int = used_cells[0].y
-	for cell in used_cells:
-		if cell.x < min_cx: min_cx = cell.x
-		if cell.x > max_cx: max_cx = cell.x
-		if cell.y < min_cy: min_cy = cell.y
-		if cell.y > max_cy: max_cy = cell.y
+		# Compute cell-space bounds
+		var min_cx: int = used_cells[0].x
+		var max_cx: int = used_cells[0].x
+		var min_cy: int = used_cells[0].y
+		var max_cy: int = used_cells[0].y
+		for cell in used_cells:
+			if cell.x < min_cx: min_cx = cell.x
+			if cell.x > max_cx: max_cx = cell.x
+			if cell.y < min_cy: min_cy = cell.y
+			if cell.y > max_cy: max_cy = cell.y
 
-	# Inset 3 cells from edges to avoid spawning right on the border
-	min_cx += 3; max_cx -= 3
-	min_cy += 3; max_cy -= 3
+		# Inset 3 cells from edges to avoid spawning right on the border
+		min_cx += 3; max_cx -= 3
+		min_cy += 3; max_cy -= 3
 
-	if min_cx >= max_cx or min_cy >= max_cy:
-		return
+		if min_cx >= max_cx or min_cy >= max_cy:
+			return
 
-	var player_pos = player.global_position
+		var player_pos = player.global_position
 
-	_spawn_group(JELLYFISH_SCENE, JELLYFISH_COUNT, root, tilemap, occupied,
-		player_pos, min_cx, max_cx, min_cy, max_cy)
-	_spawn_group(STINGRAY_SCENE, STINGRAY_COUNT, root, tilemap, occupied,
-		player_pos, min_cx, max_cx, min_cy, max_cy)
+		_spawn_group(JELLYFISH_SCENE, JELLYFISH_COUNT, root, tilemap, occupied,
+			player_pos, min_cx, max_cx, min_cy, max_cy)
+		_spawn_group(STINGRAY_SCENE, STINGRAY_COUNT, root, tilemap, occupied,
+			player_pos, min_cx, max_cx, min_cy, max_cy)
+		_spawn_group(CRAB_SCENE, CRAB_COUNT, root, tilemap, occupied,
+			player_pos, min_cx, max_cx, min_cy, max_cy)
 
 
 func _spawn_group(
