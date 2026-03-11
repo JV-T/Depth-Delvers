@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func transition(scenepath):
+	$GPUParticles2D.emitting = true
 	$AnimationPlayer.play("fadein")
 	await $AnimationPlayer.animation_finished
 	$AudioStreamPlayer2.playing = true

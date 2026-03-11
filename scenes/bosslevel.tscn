@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://c7b6vkjhjtawj" path="res://scenes/text_edit.gd" id="5_fdp07"]
 [ext_resource type="Texture2D" uid="uid://c7ml23lvb2c6t" path="res://sprites/sheet.png" id="6_0imem"]
 [ext_resource type="Script" uid="uid://badcxlsojw6ep" path="res://scenes/nextlevel.gd" id="7_413ed"]
-[ext_resource type="PackedScene" uid="uid://ex4fxqcympnc" path="res://crabbossfight.tscn" id="8_bied8"]
+[ext_resource type="PackedScene" uid="uid://baig35tbymnxx" path="res://scenes/kingcrab.tscn" id="8_bied8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2r41h"]
 tile_data = PackedInt32Array(0, 131072, 5, 1, 262144, 1, 2, 262144, 1, 3, 262144, 1, 4, 262144, 1, 5, 262144, 1, 6, 262144, 1, 7, 262144, 1, 8, 262144, 1, 9, 131072, 4)
@@ -870,10 +870,60 @@ pattern_1 = SubResource("TileMapPattern_klq6b")
 pattern_2 = SubResource("TileMapPattern_b121j")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klq6b"]
-size = Vector2(1552, 292)
+size = Vector2(969, 153)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76aq6"]
 size = Vector2(981, 86)
+
+[sub_resource type="Animation" id="Animation_bied8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("miner/Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gb3xq"]
+resource_name = "bossfight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("miner/Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.4, 0.4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nextlevel2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jo4fh"]
+_data = {
+&"RESET": SubResource("Animation_bied8"),
+&"bossfight": SubResource("Animation_gb3xq")
+}
 
 [node name="bosslevel" type="Node2D" unique_id=1405336156]
 
@@ -882,7 +932,6 @@ position = Vector2(-88, -1990)
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
 position = Vector2(-30, -10)
-zoom = Vector2(0.4, 0.4)
 limit_left = -2200
 limit_top = -2100
 limit_right = 2100
@@ -929,8 +978,15 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD7//L/AAACAAAAAAD7//H/AAACAAQAAAD6//L/AAABAAEAAAD6//H/AAAEAAMAAAD5//L/AAABAAAAAAD5//H/AAAEAAMAAAD4//L/AAABAAAAAAD4//H/AAAEAAMAAAD3//L/AAABAAQAAAD3//H/AAAEAAMAAAD2//L/AAABAAEAAAD2//H/AAAEAAMAAAD1//L/AAABAAAAAAD1//H/AAAEAAMAAAD0//L/AAABAAEAAAD0//H/AAAEAAMAAADy//L/AAABAAEAAADz//L/AAABAAAAAADz//H/AAAEAAMAAADy//H/AAAEAAMAAAAMAPL/AAABAAIAAAAMAPH/AAACAAQAAAALAPL/AAABAAAAAAALAPH/AAAEAAMAAAAKAPL/AAABAAEAAAAKAPH/AAAEAAMAAAAJAPL/AAABAAAAAAAJAPH/AAAEAAMAAAAIAPL/AAABAAEAAAAIAPH/AAAEAAMAAAAHAPL/AAABAAAAAAAHAPH/AAAEAAMAAAAGAPL/AAABAAEAAAAGAPH/AAAEAAMAAAAFAPL/AAABAAAAAAAFAPH/AAAEAAMAAAAEAPL/AAABAAEAAAAEAPH/AAAEAAMAAAADAPL/AAABAAMAAAADAPH/AAACAAUAAADx//P/AAACAAAAAADx//L/AAABAAAAAADx//H/AAAEAAMAAAAOAAEAAAABAAIAAAAOAAAAAAACAAAAAAAOAP//AAACAAAAAAAOAP7/AAACAAAAAAAOAP3/AAACAAAAAAAOAPz/AAACAAAAAAAOAPv/AAACAAAAAAAOAPr/AAACAAAAAAAOAPn/AAACAAAAAAAOAPj/AAACAAAAAAAOAPf/AAACAAAAAAAOAPb/AAACAAAAAAAOAPX/AAACAAAAAAAOAPT/AAACAAAAAAAOAPP/AAACAAAAAAAOAPL/AAACAAAAAAAOAPH/AAACAAQAAAANAAEAAAABAAAAAAANAAAAAAAFAAAAAAANAP//AAACAAEAAAANAP7/AAACAAEAAAANAP3/AAACAAEAAAANAPz/AAACAAEAAAANAPv/AAACAAEAAAANAPr/AAACAAEAAAANAPn/AAACAAEAAAANAPj/AAACAAEAAAANAPf/AAACAAEAAAANAPb/AAACAAEAAAANAPX/AAACAAEAAAANAPT/AAACAAEAAAANAPP/AAACAAEAAAANAPL/AAABAAEAAAANAPH/AAAEAAMAAADx/wEAAAABAAEAAADx/wAAAAACAAIAAADx////AAACAAAAAADx//7/AAACAAAAAADx//3/AAACAAAAAADx//z/AAACAAAAAADx//v/AAACAAAAAADx//r/AAACAAAAAADx//n/AAACAAAAAADx//j/AAACAAAAAADx//f/AAACAAAAAADx//b/AAACAAAAAADx//X/AAACAAAAAADx//T/AAACAAAAAADw/wEAAAABAAMAAADw/wAAAAACAAEAAADw////AAACAAEAAADw//7/AAACAAEAAADw//3/AAACAAEAAADw//z/AAACAAEAAADw//v/AAACAAEAAADw//r/AAACAAEAAADw//n/AAACAAEAAADw//j/AAACAAEAAADw//f/AAACAAEAAADw//b/AAACAAEAAADw//X/AAACAAEAAADw//T/AAACAAEAAADw//P/AAACAAEAAADw//L/AAACAAEAAADw//H/AAACAAUAAAD7/wEAAAABAAIAAAD7/wAAAAACAAQAAAD6/wEAAAABAAAAAAD6/wAAAAAEAAMAAAD5/wEAAAABAAEAAAD5/wAAAAAEAAMAAAD4/wEAAAABAAAAAAD4/wAAAAAEAAMAAAD3/wEAAAABAAEAAAD3/wAAAAAEAAMAAAD2/wEAAAABAAAAAAD2/wAAAAAEAAMAAAD1/wEAAAABAAEAAAD1/wAAAAAEAAMAAAD0/wEAAAABAAAAAAD0/wAAAAAEAAMAAADz/wEAAAABAAEAAADz/wAAAAAEAAMAAADy/wEAAAABAAAAAADy/wAAAAAEAAMAAAAMAAEAAAABAAEAAAAMAAAAAAAEAAMAAAALAAEAAAABAAAAAAALAAAAAAAEAAMAAAAKAAEAAAABAAEAAAAKAAAAAAAEAAMAAAAJAAEAAAABAAAAAAAJAAAAAAAEAAMAAAAIAAEAAAABAAEAAAAIAAAAAAAEAAMAAAAHAAEAAAABAAAAAAAHAAAAAAAEAAMAAAAGAAEAAAABAAEAAAAGAAAAAAAEAAMAAAAFAAEAAAABAAAAAAAFAAAAAAAEAAMAAAAEAAEAAAABAAEAAAAEAAAAAAAEAAMAAAADAAEAAAABAAMAAAADAAAAAAACAAUAAAA=")
 tile_set = SubResource("TileSet_ppgk2")
 
+[node name="nextlevel2" type="Area2D" parent="." unique_id=1160335917]
+position = Vector2(3149, -4124)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nextlevel2" unique_id=1132933532]
+position = Vector2(-3223.5, 2369.5)
+shape = SubResource("RectangleShape2D_klq6b")
+
 [node name="nextlevel" type="Area2D" parent="." unique_id=1148327574]
-position = Vector2(293, -2110)
+position = Vector2(125, -2722)
 script = ExtResource("7_413ed")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nextlevel" unique_id=1847476716]
@@ -943,7 +999,11 @@ shape = SubResource("RectangleShape2D_klq6b")
 position = Vector2(-71.5, -2144)
 shape = SubResource("RectangleShape2D_76aq6")
 
-[node name="crabbossfight" parent="." unique_id=1872579421 instance=ExtResource("8_bied8")]
-position = Vector2(-111, -840)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1493254183]
+libraries/ = SubResource("AnimationLibrary_jo4fh")
 
+[node name="kingcrab" parent="." unique_id=613965640 instance=ExtResource("8_bied8")]
+position = Vector2(-41, -349)
+
+[connection signal="body_entered" from="nextlevel2" to="miner/Camera2D" method="_on_nextlevel_2_body_entered"]
 [connection signal="body_entered" from="nextlevel" to="nextlevel" method="_on_body_entered"]

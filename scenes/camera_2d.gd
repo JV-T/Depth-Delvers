@@ -31,3 +31,7 @@ func _process(delta):
 	
 	# Smoothly move camera toward target
 	global_position = global_position.lerp(target_pos, smoothing_speed * delta)
+
+
+func _on_nextlevel_2_body_entered(body: Node2D) -> void:
+	$"../../AnimationPlayer".play("bossfight")

@@ -13,6 +13,7 @@ var _origin: Vector2
 var _time: float = 0.0  # added this
 var _phase: float = 0.0
 var _initialized: bool = false
+var _drift_direction: float = 1.0
 
 
 func _ready() -> void:
@@ -24,15 +25,17 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	# Lazily capture origin — spawner sets global_position AFTER _ready fires
 	if not _initialized:
 		_origin = global_position
 		_initialized = true
 
-	_time += delta  # increment time each frame
+	_time += delta
+
+	# Update origin's X to drift linearly, bouncing on contact
+	_origin.x += _drift_direction * DRIFT_SPEED * delta * 60.0
 
 	global_position.y = _origin.y + sin(_time * BOB_SPEED + _phase) * BOB_AMPLITUDE
-	global_position.x = _origin.x + sin(_time * DRIFT_SPEED + _phase * 0.7) * DRIFT_RANGE
+	global_position.x = _origin.x  # X is now tracked via _origin directly
 	$ProgressBar.value = enemyhealth
 	if _player_contact and !$GPUParticles2D2.emitting and $Timer.is_stopped():
 		UserInterface.knockback = -10
@@ -44,6 +47,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	_drift_direction *= -1.0 
 	if body.name == "miner":
 		_player_contact = true
 

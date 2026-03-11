@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bwsj17de8plyb" path="res://voodoo_cactus_island.png" id="1_shjet"]
 [ext_resource type="Script" uid="uid://c6jfbudu8latv" path="res://startinganimation.gd" id="1_wf68u"]
 [ext_resource type="Texture2D" uid="uid://cs1irhd3p6mhb" path="res://Swimming_Damaged.png" id="3_wf68u"]
+[ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="4_5rne6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rne6"]
 atlas = ExtResource("3_wf68u")
@@ -113,6 +114,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_wf68u"]
 resource_name = "startinganimation"
@@ -153,12 +166,41 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.93),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5rne6"]
 _data = {
 &"RESET": SubResource("Animation_shjet"),
 &"startinganimation": SubResource("Animation_wf68u")
 }
+
+[sub_resource type="Gradient" id="Gradient_1w6qy"]
+colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ond1r"]
+gradient = SubResource("Gradient_1w6qy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cv0gf"]
+particle_flag_disable_z = true
+angle_min = -162.2
+angle_max = 45.00001
+spread = 31.765
+initial_velocity_min = -75.0
+initial_velocity_max = 75.89
+gravity = Vector3(0, -90, 0)
+scale_min = 0.25
+color_ramp = SubResource("GradientTexture1D_ond1r")
 
 [node name="startinganimation" type="CanvasLayer" unique_id=1662690513]
 layer = 999
@@ -235,6 +277,16 @@ offset_right = 687.0
 offset_bottom = 567.0
 pivot_offset = Vector2(46, 189)
 text = "Tutorial"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=492624257]
+position = Vector2(825, 596)
+emitting = false
+amount = 40
+texture = ExtResource("4_5rne6")
+lifetime = 2.1599999999999997
+explosiveness = 1.0
+randomness = 0.65
+process_material = SubResource("ParticleProcessMaterial_cv0gf")
 
 [connection signal="animation_finished" from="AnimatedSprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

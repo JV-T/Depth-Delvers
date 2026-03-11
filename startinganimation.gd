@@ -301,7 +301,7 @@ func _on_world_env_toggled(toggled_on: bool) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	Parallax2d.visible = true
-	get_tree().change_scene_to_file("res://scenes/level.tscn")
+	transition.transition("res://scenes/level.tscn")
 	LayerPopup.show_layer(1)
 
 

@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://ltdj01k46nmg" path="res://scenes/richardmultimedia-ocean-waves-250310.mp3" id="2_tg4cr"]
 [ext_resource type="AudioStream" uid="uid://cm6xdn185hqf2" path="res://dragon-studio-blizzard-transition-463210 (2).mp3" id="3_37rai"]
 [ext_resource type="Texture2D" uid="uid://ch1vv48kvuefx" path="res://treasure chest/pause_icon.png" id="4_0qrqu"]
+[ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="5_mx0kw"]
 
 [sub_resource type="Animation" id="Animation_v2lfg"]
 length = 0.001
@@ -40,6 +41,34 @@ _data = {
 &"RESET": SubResource("Animation_v2lfg"),
 &"fadein": SubResource("Animation_tg4cr")
 }
+
+[sub_resource type="Gradient" id="Gradient_w4oxd"]
+colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fsbdh"]
+gradient = SubResource("Gradient_w4oxd")
+
+[sub_resource type="Curve" id="Curve_n6wdb"]
+_data = [Vector2(0, 0.61797756), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g3huw"]
+curve = SubResource("Curve_n6wdb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_280g2"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(600, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -162.2
+angle_max = 45.00001
+direction = Vector3(0.1, 1, 0.1)
+initial_velocity_min = -300.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_g3huw")
+color_ramp = SubResource("GradientTexture1D_fsbdh")
 
 [node name="blacktransition" type="CanvasLayer" unique_id=273370533]
 process_mode = 3
@@ -107,6 +136,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 200
 text = "Paused"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=845344791]
+process_mode = 3
+position = Vector2(549, 660)
+emitting = false
+amount = 100
+texture = ExtResource("5_mx0kw")
+lifetime = 3.0
+one_shot = true
+speed_scale = 1.65
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_280g2")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
