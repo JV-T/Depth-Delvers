@@ -181,8 +181,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ws0vm"]
-radius = 64.0
-height = 132.0
+radius = 89.0
+height = 178.0
 
 [node name="Player" type="CharacterBody2D" unique_id=297162121]
 script = ExtResource("1_ij6vw")
@@ -229,7 +229,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackarea" unique_id=268810144]
-position = Vector2(6, -72)
+position = Vector2(10, -22)
 shape = SubResource("CapsuleShape2D_ws0vm")
 
 [node name="Timer" type="Timer" parent="." unique_id=1231494332]
