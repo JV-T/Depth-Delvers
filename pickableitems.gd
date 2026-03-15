@@ -1,9 +1,9 @@
 extends Node2D
 
 const WEAPONS = [
-	{"name": "Black Sword", "type": "weapon", "texture_path": "res://pixil-frame-0 (19).png", "damage": 30, "swing_speed": 1.2, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "stab"},
-	{"name": "Katana", "type": "weapon", "texture_path": "res://pixil-frame-0 (1).png", "damage": 35, "swing_speed": 0.8, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "swing"},
-	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 30, "swing_speed": 1.0, "scale": 0.5, "pickup_scale": 0.125, "attack_type": "stab"}
+	{"name": "Black Sword", "type": "weapon", "texture_path": "res://pixil-frame-0 (19).png", "damage": 30, "swing_speed": 0.6, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "stab"},
+	{"name": "Katana", "type": "weapon", "texture_path": "res://pixil-frame-0 (1).png", "damage": 35, "swing_speed": 0.4, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "swing"},
+	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 40, "swing_speed": 0.5, "scale": 0.5, "pickup_scale": 0.125, "attack_type": "stab"}
 ]
 var item_data: Dictionary = {}
 var player_in_range: bool = false

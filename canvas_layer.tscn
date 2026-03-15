@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dmxkkoqfgkojy"]
 
 [ext_resource type="Script" uid="uid://c2t50g0ko7e28" path="res://canvas_layer.gd" id="1_v2lfg"]
-[ext_resource type="AudioStream" uid="uid://ltdj01k46nmg" path="res://scenes/richardmultimedia-ocean-waves-250310.mp3" id="2_tg4cr"]
 [ext_resource type="AudioStream" uid="uid://cm6xdn185hqf2" path="res://dragon-studio-blizzard-transition-463210 (2).mp3" id="3_37rai"]
-[ext_resource type="Texture2D" uid="uid://ch1vv48kvuefx" path="res://treasure chest/pause_icon.png" id="4_0qrqu"]
+[ext_resource type="AudioStream" uid="uid://crwsifec5ggef" path="res://dragon-studio-deep-sea-underwater-ambience-482888.mp3" id="3_w4oxd"]
 [ext_resource type="Texture2D" uid="uid://b63fgtr067ugy" path="res://pixil-frame-0.png" id="5_mx0kw"]
 [ext_resource type="Theme" uid="uid://g3t1lj8d0ewr" path="res://texttheme.tres" id="5_w4oxd"]
 
@@ -120,6 +119,7 @@ theme_override_font_sizes/font_size = 200
 text = "Paused"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1582609953]
+process_mode = 3
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,22 +133,12 @@ color = Color(0, 0, 0, 1)
 libraries/ = SubResource("AnimationLibrary_37rai")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=946070514]
-stream = ExtResource("2_tg4cr")
+stream = ExtResource("3_w4oxd")
+volume_db = -15.6
 autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=591158486]
 stream = ExtResource("3_37rai")
-
-[node name="TextureButton" type="TextureButton" parent="." unique_id=430804709]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -78.0
-offset_top = 12.0
-offset_right = -14.0
-offset_bottom = 76.0
-grow_horizontal = 0
-texture_normal = ExtResource("4_0qrqu")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=845344791]
 process_mode = 3
@@ -164,4 +154,3 @@ process_material = SubResource("ParticleProcessMaterial_280g2")
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

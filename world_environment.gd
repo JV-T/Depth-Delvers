@@ -15,3 +15,5 @@ func _process(_delta: float) -> void:
 func _update_visibility() -> void:
 	if UserInterface:
 		visible = UserInterface.world_environment_enabled
+		
+		

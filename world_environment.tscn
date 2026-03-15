@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://sv4oh2cggpan" path="res://vhsshader.gdshader" id="3_01g3i"]
 [ext_resource type="Script" uid="uid://dy661mv4xttcw" path="res://vhseffect.gd" id="4_t4ycb"]
 [ext_resource type="Script" uid="uid://b020ur11jxggo" path="res://zapeffect.gd" id="5_x002e"]
-[ext_resource type="Script" path="res://world_environment.gd" id="6_env"]
+[ext_resource type="Script" uid="uid://duo0ot62py15h" path="res://world_environment.gd" id="6_env"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjtrd"]
 shader = ExtResource("1_x16oa")
@@ -87,8 +87,8 @@ _data = {
 }
 
 [node name="postprocessing" type="CanvasLayer" unique_id=742937369]
-script = ExtResource("6_env")
 layer = 0
+script = ExtResource("6_env")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=330196780]
 material = SubResource("ShaderMaterial_wjtrd")
@@ -108,6 +108,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_t4ycb")
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=105772117]
+visible = false
+material = SubResource("ShaderMaterial_wjtrd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="zap" type="ColorRect" parent="." unique_id=303181685]
 anchors_preset = 15

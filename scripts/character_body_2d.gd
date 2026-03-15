@@ -51,7 +51,7 @@ func _physics_process(delta):
 				_do_swing()
 			$attackarea.monitorable = true
 			$attackarea.monitoring = true
-			$Timer.start(1.0 / UserInterface.swing_speed)
+			$Timer.start(3.0 / UserInterface.swing_speed)
 func _do_swing() -> void:
 	_is_swinging = true
 	var spd = UserInterface.swing_speed
