@@ -8,6 +8,8 @@
 [ext_resource type="Theme" uid="uid://g3t1lj8d0ewr" path="res://texttheme.tres" id="5_f2fal"]
 [ext_resource type="Texture2D" uid="uid://bbbaqfbf0h0wf" path="res://Gold Deluxe Splendid Luxury Jewelry Logo (1).png" id="6_f2fal"]
 [ext_resource type="AudioStream" uid="uid://bos648jr71mx5" path="res://universfield-water-splash-02-352021.mp3" id="8_iptgy"]
+[ext_resource type="AudioStream" uid="uid://dxdfadyokqbal" path="res://universfield-computer-mouse-click-352734.mp3" id="9_xluum"]
+[ext_resource type="AudioStream" uid="uid://cvgj2nxnfhf12" path="res://freesound_community-person-walking-on-rocks-and-sand-100586.mp3" id="10_ehpkd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rne6"]
 atlas = ExtResource("3_wf68u")
@@ -363,6 +365,13 @@ texture = ExtResource("6_f2fal")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2045577143]
 stream = ExtResource("8_iptgy")
+
+[node name="buttonclick" type="AudioStreamPlayer" parent="." unique_id=1689720394]
+stream = ExtResource("9_xluum")
+
+[node name="persononsanmd" type="AudioStreamPlayer" parent="." unique_id=133257147]
+stream = ExtResource("10_ehpkd")
+pitch_scale = 1.63
 
 [connection signal="animation_finished" from="AnimatedSprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]

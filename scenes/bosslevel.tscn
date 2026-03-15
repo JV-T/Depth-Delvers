@@ -1032,17 +1032,17 @@ autostart = true
 [node name="TextureRect" type="TextureRect" parent="." unique_id=132754389]
 z_index = 100
 offset_left = -2253.0
-offset_top = -1137.0
+offset_top = -1197.0
 offset_right = -1741.0
-offset_bottom = -951.0
+offset_bottom = -917.0
 texture = SubResource("GradientTexture2D_8eofr")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=22468974]
 z_index = 100
 offset_left = 1570.0
-offset_top = -1151.0
+offset_top = -1194.0
 offset_right = 2098.0
-offset_bottom = -965.0
+offset_bottom = -951.0
 texture = SubResource("GradientTexture2D_8eofr")
 flip_h = true
 
