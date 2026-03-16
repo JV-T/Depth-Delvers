@@ -31,9 +31,10 @@ func _create_trail() -> void:
 	trail.global_position = weapon_sprite.global_position
 	trail.global_rotation = weapon_sprite.global_rotation
 	trail.scale = weapon_sprite.global_scale
+	trail.modulate.a = 0.4
 	get_tree().current_scene.add_child(trail)
 	var t = create_tween()
-	t.tween_property(trail, "modulate:a", 0.0, 0.2)
+	t.tween_property(trail, "modulate:a", 0.0, 0.15)
 	t.tween_callback(trail.queue_free)
 
 func _physics_process(delta):
@@ -63,8 +64,16 @@ func _physics_process(delta):
 	weapon_pivot.position = Vector2.ZERO
 	var mouse_pos = get_global_mouse_position()
 	var angle_to_mouse = global_position.direction_to(mouse_pos).angle()
-	var snapped_angle = round(angle_to_mouse / (PI / 4.0)) * (PI / 4.0)
-	weapon_pivot.global_rotation = snapped_angle + PI/2 + _swing_offset
+	var snapped_angle = round(angle_to_mouse / (PI / 64.0)) * (PI / 64.0)
+	
+	var is_facing_left = abs(angle_to_mouse) > PI / 2.0
+	if is_facing_left:
+		weapon_pivot.scale.x = -1
+	else:
+		weapon_pivot.scale.x = 1
+		
+	var actual_swing_offset = -_swing_offset if is_facing_left else _swing_offset
+	weapon_pivot.global_rotation = snapped_angle + PI/2 + actual_swing_offset
 	
 	_update_weapon()
 	if Input.is_action_pressed("attack"):
@@ -118,12 +127,16 @@ func _update_weapon() -> void:
 		var s = w.scale
 		weapon_sprite.scale = Vector2(s, s)
 	
+	var rot_offset = -0.83
+	if w.has("rot_offset"):
+		rot_offset = w.rot_offset
+	
+	weapon_sprite.rotation = rot_offset
+	
 	if w.attack_type == "stab":
-		weapon_sprite.rotation = PI
 		weapon_sprite.position.x = 0
 		weapon_sprite.position.y = -101 - _stab_offset
 	else:
-		weapon_sprite.rotation = 0
 		weapon_sprite.position.x = 0
 		weapon_sprite.position.y = -101
 

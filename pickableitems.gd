@@ -1,11 +1,11 @@
 extends Node2D
 
 const WEAPONS = [
-	{"name": "Crab Spear", "type": "weapon", "texture_path": "res://CrabSpear.png", "damage": 30, "swing_speed": 0.6, "scale": 0.3, "pickup_scale": 0.1, "attack_type": "stab"},
-	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 40, "swing_speed": 0.5, "scale": 0.5, "pickup_scale": 0.125, "attack_type": "stab"},
-	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png", "damage": 35, "swing_speed": 0.6, "scale": 0.5, "pickup_scale": 0.15, "attack_type": "swing"},
-	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png", "damage": 35, "swing_speed": 0.4, "scale": 0.5, "pickup_scale": 0.15, "attack_type": "swing"},
-	{"name": "Cutlass", "type": "weapon", "texture_path": "res://Cutlass.png", "damage": 30, "swing_speed": 0.5, "scale": 0.3, "pickup_scale": 0.1, "attack_type": "swing"}
+	{"name": "Crab Spear", "type": "weapon", "texture_path": "res://CrabSpear.png", "damage": 30, "swing_speed": 0.6, "scale": 2.25, "pickup_scale": 0.5, "attack_type": "stab", "rot_offset": -0.83},
+	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 40, "swing_speed": 0.5, "scale": 0.5, "pickup_scale": 0.125, "attack_type": "stab", "rot_offset": -0.83},
+	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png", "damage": 35, "swing_speed": 0.6, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "swing", "rot_offset": -0.83},
+	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png", "damage": 35, "swing_speed": 0.4, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "swing", "rot_offset": -0.83},
+	{"name": "Cutlass", "type": "weapon", "texture_path": "res://Cutlass.png", "damage": 30, "swing_speed": 0.5, "scale": 1.5, "pickup_scale": 0.5, "attack_type": "swing", "rot_offset": -0.83}
 ]
 var item_data: Dictionary = {}
 var player_in_range: bool = false
