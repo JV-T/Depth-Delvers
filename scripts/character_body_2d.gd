@@ -13,6 +13,8 @@ var _base_weapon_x: float = 0.0
 var _is_swinging: bool = false
 var _trail_timer: float = 0.0
 
+var projectile_scene = preload("res://scenes/crab_projectile.tscn")
+
 func _ready() -> void:
 	$playeranimation.modulate = UserInterface.colorpicked
 	weapon_pivot.position = Vector2.ZERO
@@ -84,6 +86,13 @@ func _physics_process(delta):
 				_do_stab()
 			else:
 				_do_swing()
+				
+			if UserInterface.weapon.name == "Crab Spear" and projectile_scene:
+				var proj = projectile_scene.instantiate()
+				proj.global_position = global_position
+				proj.rotation = angle_to_mouse
+				get_tree().current_scene.add_child(proj)
+				
 			$attackarea.monitorable = true
 			$attackarea.monitoring = true
 			$Timer.start(3.0 / UserInterface.swing_speed)
@@ -122,10 +131,12 @@ func _update_weapon() -> void:
 	if w.name != _equipped_weapon_name:
 		weapon_sprite.texture = load(w.texture_path)
 		_equipped_weapon_name = w.name
-		weapon_anim.play("weapon/pickup")
-	if not weapon_anim.is_playing():
-		var s = w.scale
-		weapon_sprite.scale = Vector2(s, s)
+		
+		var target_scale = w.scale
+		weapon_sprite.scale = Vector2.ZERO
+		var t = create_tween()
+		t.tween_property(weapon_sprite, "scale", Vector2(target_scale * 1.5, target_scale * 1.5), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		t.tween_property(weapon_sprite, "scale", Vector2(target_scale, target_scale), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	
 	var rot_offset = -0.83
 	if w.has("rot_offset"):
@@ -143,4 +154,3 @@ func _update_weapon() -> void:
 func _on_timer_timeout() -> void:
 	$attackarea.monitorable = false
 	$attackarea.monitoring = false
-

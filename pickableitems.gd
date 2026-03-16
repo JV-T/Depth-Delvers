@@ -1,17 +1,18 @@
 extends Node2D
 
 const WEAPONS = [
-	{"name": "Crab Spear", "type": "weapon", "texture_path": "res://CrabSpear.png", "damage": 30, "swing_speed": 0.6, "scale": 2.25, "pickup_scale": 0.5, "attack_type": "stab", "rot_offset": -0.83},
-	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 40, "swing_speed": 0.5, "scale": 0.5, "pickup_scale": 0.125, "attack_type": "stab", "rot_offset": -0.83},
-	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png", "damage": 35, "swing_speed": 0.6, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "swing", "rot_offset": -0.83},
-	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png", "damage": 35, "swing_speed": 0.4, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "swing", "rot_offset": -0.83},
-	{"name": "Cutlass", "type": "weapon", "texture_path": "res://Cutlass.png", "damage": 30, "swing_speed": 0.5, "scale": 1.5, "pickup_scale": 0.5, "attack_type": "swing", "rot_offset": -0.83}
+	{"name": "Crab Spear", "type": "weapon", "texture_path": "res://CrabSpear.png", "damage": 20, "swing_speed": 0.6, "scale": 2.25, "pickup_scale": 0.5, "attack_type": "stab", "rot_offset": -0.83},
+	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 40, "swing_speed": 0.5, "scale": 0.375, "pickup_scale": 0.125, "attack_type": "stab", "rot_offset": -0.83},
+	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png", "damage": 35, "swing_speed": 0.6, "scale": 3.0, "pickup_scale": 1.0, "attack_type": "swing", "rot_offset": -0.83},
+	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png", "damage": 35, "swing_speed": 0.4, "scale": 3.0, "pickup_scale": 1.0, "attack_type": "swing", "rot_offset": -0.83},
+	{"name": "Cutlass", "type": "weapon", "texture_path": "res://Cutlass.png", "damage": 30, "swing_speed": 0.5, "scale": 2.0, "pickup_scale": 0.5, "attack_type": "swing", "rot_offset": -1.57}
 ]
 var item_data: Dictionary = {}
 var player_in_range: bool = false
 
 
 func _ready() -> void:
+	randomize()
 	item_data = WEAPONS[randi() % WEAPONS.size()]
 	$"item sprite".texture = load(item_data.texture_path)
 	var s = item_data.pickup_scale
