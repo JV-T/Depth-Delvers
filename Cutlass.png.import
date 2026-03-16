@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuglr6k5nc5sa"
-path="res://.godot/imported/pixil-frame-0 (19).png-01d4efdc5e6ca7f361e0fb19d36105bb.ctex"
+uid="uid://coe8vow5om6ks"
+path="res://.godot/imported/Cutlass.png-5c225a820149898fb01e90ff6e616097.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pixil-frame-0 (19).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (19).png-01d4efdc5e6ca7f361e0fb19d36105bb.ctex"]
+source_file="res://Cutlass.png"
+dest_files=["res://.godot/imported/Cutlass.png-5c225a820149898fb01e90ff6e616097.ctex"]
 
 [params]
 

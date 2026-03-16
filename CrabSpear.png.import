@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coe8vow5om6ks"
-path="res://.godot/imported/pixil-frame-0 (1).png-160dd9969d7e45d14d604c370b40e019.ctex"
+uid="uid://cuglr6k5nc5sa"
+path="res://.godot/imported/CrabSpear.png-57df2afb23db59d1074cfb54159963b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pixil-frame-0 (1).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (1).png-160dd9969d7e45d14d604c370b40e019.ctex"]
+source_file="res://CrabSpear.png"
+dest_files=["res://.godot/imported/CrabSpear.png-57df2afb23db59d1074cfb54159963b6.ctex"]
 
 [params]
 

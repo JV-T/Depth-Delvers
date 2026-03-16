@@ -11,10 +11,31 @@ var _swing_offset: float = 0.0
 var _stab_offset: float = 0.0
 var _base_weapon_x: float = 0.0
 var _is_swinging: bool = false
+var _trail_timer: float = 0.0
+
 func _ready() -> void:
 	$playeranimation.modulate = UserInterface.colorpicked
 	weapon_pivot.position = Vector2.ZERO
 	_base_weapon_x = weapon_sprite.position.x
+
+func _process(delta: float) -> void:
+	if _is_swinging and UserInterface.weapon != null and UserInterface.weapon.attack_type == "swing":
+		_trail_timer -= delta
+		if _trail_timer <= 0:
+			_trail_timer = 0.02
+			_create_trail()
+
+func _create_trail() -> void:
+	var trail = Sprite2D.new()
+	trail.texture = weapon_sprite.texture
+	trail.global_position = weapon_sprite.global_position
+	trail.global_rotation = weapon_sprite.global_rotation
+	trail.scale = weapon_sprite.global_scale
+	get_tree().current_scene.add_child(trail)
+	var t = create_tween()
+	t.tween_property(trail, "modulate:a", 0.0, 0.2)
+	t.tween_callback(trail.queue_free)
+
 func _physics_process(delta):
 	if UserInterface.weapon != null and UserInterface.weapon.name == "Trident":
 		speed = 800 * UserInterface.speed_multiplier
@@ -38,8 +59,13 @@ func _physics_process(delta):
 	UserInterface.shakeamount += approxspeed
 	scale = Vector2(1.176 - approxspeed / 5, 1.207 - approxspeed / 5)
 	move_and_slide()
+	
 	weapon_pivot.position = Vector2.ZERO
-	weapon_pivot.rotation = (rotation - rotation_offset) + _swing_offset
+	var mouse_pos = get_global_mouse_position()
+	var angle_to_mouse = global_position.direction_to(mouse_pos).angle()
+	var snapped_angle = round(angle_to_mouse / (PI / 4.0)) * (PI / 4.0)
+	weapon_pivot.global_rotation = snapped_angle + PI/2 + _swing_offset
+	
 	_update_weapon()
 	if Input.is_action_pressed("attack"):
 		if UserInterface.weapon != null and not _is_swinging:
@@ -52,6 +78,7 @@ func _physics_process(delta):
 			$attackarea.monitorable = true
 			$attackarea.monitoring = true
 			$Timer.start(3.0 / UserInterface.swing_speed)
+
 func _do_swing() -> void:
 	_is_swinging = true
 	var spd = UserInterface.swing_speed
@@ -63,17 +90,19 @@ func _do_swing() -> void:
 	tween.tween_property(self, "_swing_offset", 0.0, 0.1 / spd) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_callback(func(): _is_swinging = false)
+
 func _do_stab() -> void:
 	_is_swinging = true
 	var spd = UserInterface.swing_speed
 	var tween = create_tween()
-	tween.tween_property(self, "_stab_offset", -10.0, 0.06 / spd) \
+	tween.tween_property(self, "_stab_offset", -20.0, 0.06 / spd) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "_stab_offset", 40.0, 0.10 / spd) \
+	tween.tween_property(self, "_stab_offset", 80.0, 0.10 / spd) \
 		.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "_stab_offset", 0.0, 0.14 / spd) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_callback(func(): _is_swinging = false)
+
 func _update_weapon() -> void:
 	var w = UserInterface.weapon
 	if w == null:
@@ -88,7 +117,17 @@ func _update_weapon() -> void:
 	if not weapon_anim.is_playing():
 		var s = w.scale
 		weapon_sprite.scale = Vector2(s, s)
-	weapon_sprite.position.x = _base_weapon_x + _stab_offset
+	
+	if w.attack_type == "stab":
+		weapon_sprite.rotation = PI
+		weapon_sprite.position.x = 0
+		weapon_sprite.position.y = -101 - _stab_offset
+	else:
+		weapon_sprite.rotation = 0
+		weapon_sprite.position.x = 0
+		weapon_sprite.position.y = -101
+
 func _on_timer_timeout() -> void:
 	$attackarea.monitorable = false
 	$attackarea.monitoring = false
+

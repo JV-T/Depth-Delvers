@@ -1,22 +1,18 @@
 extends Node2D
 
 const WEAPONS = [
-	{"name": "Black Sword", "type": "weapon", "texture_path": "res://pixil-frame-0 (19).png", "damage": 30, "swing_speed": 0.6, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "stab"},
-	{"name": "Katana", "type": "weapon", "texture_path": "res://pixil-frame-0 (1).png", "damage": 35, "swing_speed": 0.4, "scale": 4.0, "pickup_scale": 1.0, "attack_type": "swing"},
-	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 40, "swing_speed": 0.5, "scale": 0.5, "pickup_scale": 0.125, "attack_type": "stab"}
+	{"name": "Crab Spear", "type": "weapon", "texture_path": "res://CrabSpear.png", "damage": 30, "swing_speed": 0.6, "scale": 0.3, "pickup_scale": 0.1, "attack_type": "stab"},
+	{"name": "Trident", "type":"weapon","texture_path":"res://Sword Pack/trident.png", "damage": 40, "swing_speed": 0.5, "scale": 0.5, "pickup_scale": 0.125, "attack_type": "stab"},
+	{"name": "Black Sword", "type": "weapon", "texture_path": "res://Sword Pack/Black Sword.png", "damage": 35, "swing_speed": 0.6, "scale": 0.5, "pickup_scale": 0.15, "attack_type": "swing"},
+	{"name": "Katana", "type": "weapon", "texture_path": "res://Sword Pack/Katana.png", "damage": 35, "swing_speed": 0.4, "scale": 0.5, "pickup_scale": 0.15, "attack_type": "swing"},
+	{"name": "Cutlass", "type": "weapon", "texture_path": "res://Cutlass.png", "damage": 30, "swing_speed": 0.5, "scale": 0.3, "pickup_scale": 0.1, "attack_type": "swing"}
 ]
 var item_data: Dictionary = {}
 var player_in_range: bool = false
 
 
 func _ready() -> void:
-	var randomnum = randi_range(1, 15)
-	if randomnum <= 7:
-		item_data=WEAPONS[0]
-	elif randomnum < 15:
-		item_data=WEAPONS[1]
-	else:
-		item_data=WEAPONS[2]
+	item_data = WEAPONS[randi() % WEAPONS.size()]
 	$"item sprite".texture = load(item_data.texture_path)
 	var s = item_data.pickup_scale
 	$"item sprite".scale = Vector2(s, s)
